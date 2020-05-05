@@ -1,0 +1,8 @@
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/install/strip.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/install/local.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/Tutorial.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/edit_cache.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/MultipleFibbers.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/rebuild_cache.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/list_install_components.dir
+/home/marcosmr/Documentos/Geant4/TRITIUM_examples/My_Examples/MultipleFibberPhotoelectric/build/CMakeFiles/install.dir

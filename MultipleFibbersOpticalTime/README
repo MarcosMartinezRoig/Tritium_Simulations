@@ -1,0 +1,33 @@
+Carlos Azevedo
+20/07/2017
+
+How to Run the software:
+
+The software allos 2 distint simulation modes: fixed event Number or time acquisition.
+
+- Fixed event number mode:
+	./MultipleFibbers (string)file.mac (int)RunNumber int(Nevents)
+	
+	Input parameters:
+		file.mac:
+			if provided the simulation will run without visualization
+			if "0" the software will run with visualization
+		RunNumber
+			Insert the RunNumber. Important for the time acquisitonMode. see below
+		Nevents
+			Insert the number of events to Run. If "0" the time acquisitionmode will be selected.
+
+- Time acquisition mode:
+	./MultipleFibbers (string)file.mac (int)RunNumber 0 (int)acquisitionTime_s (int)sourceActivityBq/L
+	
+	Input parameters:
+		file.mac:
+			Same as before
+		RunNumber
+			Insert the RunNumber. The time for each event will be incremented by RunNumber*acquisitionTime
+		Nevents
+			Must be "0". Otherelse the fixed event number mode will be selected.
+		AcquisitionTime_s:
+			The acquistion time em seconds
+		sourceActivityBq/L:
+			The source activity in Bq/L. The software considers the activity as constant during the Runs.
