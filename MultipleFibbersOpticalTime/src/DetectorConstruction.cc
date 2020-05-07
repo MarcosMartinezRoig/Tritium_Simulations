@@ -92,23 +92,25 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 {
     // Construct materials
   
-    fMaterials = Materials::GetInstance();
+	fMaterials = Materials::GetInstance();
  
-    water=FindMaterial("G4_WATER");
+	water=FindMaterial("G4_WATER");
     teflon = FindMaterial("G4_TEFLON");
     polystyrene= FindMaterial("G4_POLYSTYRENE");
     PMMA= FindMaterial("PMMA");
-    Silicone= FindMaterial("Silicone");
-    glass= FindMaterial("glass");
-    bialkaliPhoto= FindMaterial("photocathode");
+	Silicone= FindMaterial("Silicone");
+	glass= FindMaterial("glass");
+	bialkaliPhoto= FindMaterial("photocathode");
     G4bool checkOverlaps = true;
 
     
     // geometries --------------------------------------------------------------
     // world volume
-    G4VSolid* worldSolid = new G4Box("worldBox",10.*cm,10.*cm,1500.*cm);
+    G4VSolid* worldSolid 
+      = new G4Box("worldBox",10.*cm,10.*cm,1500.*cm);
     G4LogicalVolume* worldLogical  = new G4LogicalVolume(worldSolid,water,"worldLogical");
-    G4VPhysicalVolume* worldPhysical = new G4PVPlacement(0,G4ThreeVector(),worldLogical,"worldPhysical",0,
+    G4VPhysicalVolume* worldPhysical
+      = new G4PVPlacement(0,G4ThreeVector(),worldLogical,"worldPhysical",0,
                           false,0,checkOverlaps);
     
 
@@ -116,7 +118,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4double halfTeflonLength=50*cm;
     G4double rIntTeflon=22.5*mm;
     G4double rExtTeflon=30.*mm;
-
     G4VSolid* teflonTubeSolid = new G4Tubs("teflonTube",rIntTeflon,rExtTeflon,halfTeflonLength,0.,twopi);
     G4LogicalVolume* teflonTubeLogical = new G4LogicalVolume(teflonTubeSolid,teflon,"teflonTubeLogical");
     G4VPhysicalVolume* teflonTubePhysical = new G4PVPlacement(0,G4ThreeVector(0.,0.,0.*mm),teflonTubeLogical,
@@ -124,405 +125,427 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                       false,0,checkOverlaps);
                       
                       
-    //Make EndCaps
-    G4double halfLEndCap=10.*mm;
-    G4VSolid* endCapSolid=new G4Tubs("fEndCap",0*mm,rIntTeflon,halfLEndCap,0.,twopi);
+    	//Make EndCaps
 	
-    //Suport to remove from EndCap
-    G4double rSup=2.5*mm;
-    G4double halfSupRemoveLength=2.5*mm;
-    G4VSolid* supportRemoveSolid=new G4Tubs("supportRemoveVolume",0*mm,rSup,halfSupRemoveLength,0.,twopi);
+	G4double halfLEndCap=10.*mm;
+	G4VSolid* endCapSolid=new G4Tubs("fEndCap",0*mm,rIntTeflon,halfLEndCap,0.,twopi);
 	
-	
-	
-    //Make EndCaps support
-    G4double halfSupLength=halfTeflonLength-2*halfLEndCap+halfSupRemoveLength;
-    G4VSolid* supportSolid=new G4Tubs("supportVolume",0*mm,rSup,halfSupLength,0.,twopi);
+	//Suport to remove from EndCap
+	G4double rSup=2.5*mm;
+	G4double halfSupRemoveLength=2.5*mm;
+	G4VSolid* supportRemoveSolid=new G4Tubs("supportRemoveVolume",0*mm,rSup,halfSupRemoveLength,0.,twopi);
 	
 	
 	
+	//Make EndCaps support
+	 	
+	G4double halfSupLength=halfTeflonLength-2*halfLEndCap+halfSupRemoveLength;
+	G4VSolid* supportSolid=new G4Tubs("supportVolume",0*mm,rSup,halfSupLength,0.,twopi);
 	
-    //Make Silicone
-    G4double halfLengthSilicone=0.25*mm;
-    G4VSolid* siliconeSolid = new G4Tubs("siliconeSolid",0,rIntTeflon,halfLengthSilicone,0.,twopi);
+	
+	
+	
+	//Make Silicone
+	 	
+	 G4double halfLengthSilicone=0.25*mm;
+	G4VSolid* siliconeSolid = new G4Tubs("siliconeSolid",0,rIntTeflon,halfLengthSilicone,0.,twopi);
 		
 		
-    //Make PMTs
-    G4double halfLengthPMT=10.*mm;
-    G4VSolid* pmtSolid = new G4Tubs("pmtSolid",0,rIntTeflon,halfLengthPMT,0.,twopi);
+	//Make PMTs
+	 	
+	G4double halfLengthPMT=10.*mm;
+	G4VSolid* pmtSolid = new G4Tubs("pmtSolid",0,rIntTeflon,halfLengthPMT,0.,twopi);	
 		
-    //Make Photocathode
-    G4double halfLengthPhotocathode=0.5*mm;
-    G4VSolid* photocathodeSolid = new G4Tubs("photocathodeSolid",0,rIntTeflon,halfLengthPhotocathode,0.,twopi);
+	//Make Photocathode
+	G4double halfLengthPhotocathode=0.5*mm;
+	G4VSolid* photocathodeSolid = new G4Tubs("photocathodeSolid",0,rIntTeflon,halfLengthPhotocathode,0.,twopi);		
 		
 		
  
-    //place fibbers and source within 3 rings
-    rInt=0.5*mm;
-    rSource=rInt+0.005*mm;
-    halfLength=halfTeflonLength-2*halfLEndCap;
+ 	// place fibbers and source within 3 rings 
+  
+                   
+  rInt=0.5*mm;
+  rSource=rInt+0.005*mm;
+  halfLength=halfTeflonLength-2*halfLEndCap;
+  G4double ring_R1=6*mm;
+  G4int nFibbersInside=10;
+  G4double dPhi1 = twopi/nFibbersInside;
+  G4double ring_R2=12*mm;
+  G4int nFibbersMiddle=20;
+  G4double dPhi2 = twopi/nFibbersMiddle;
+  G4double ring_R3=18*mm;
+  G4int nFibbersOutside=30;
+  G4double dPhi3 = twopi/nFibbersOutside; 
+  
+  if((nFibbersInside+nFibbersMiddle+nFibbersOutside)!=nTotalFibbers){
+	  G4cout<<" "<<G4endl;
+	  G4cout<<"The number of fibbers in rings are not equal no the total number of fibbers. Please fix it"<<G4endl;
+	  G4cout<<" "<<G4endl;
+	  exit(0);
+	  }
+  
+  G4VSolid* sourceVolume = new G4Tubs("sourceVolume",rInt,rSource,halfLength,0.,twopi);
+  G4LogicalVolume* sourceLogical = new G4LogicalVolume(sourceVolume,water,"sourceLogical");
 
-    G4double ring_R1=6*mm;
-    G4int nFibbersInside=10;
-    G4double dPhi1 = twopi/nFibbersInside;
+  G4int iFibber;
+  
 
-    G4double ring_R2=12*mm;
-    G4int nFibbersMiddle=20;
-    G4double dPhi2 = twopi/nFibbersMiddle;
+  G4RotationMatrix rotm  = G4RotationMatrix();
+  rotm.rotateX(0*deg); 
+  rotm.rotateY(0*deg);
+  rotm.rotateZ(0*deg);
+  G4Transform3D transform ;
+  G4Transform3D transformEndCap ; 
 
-    G4double ring_R3=18*mm;
-    G4int nFibbersOutside=30;
-    G4double dPhi3 = twopi/nFibbersOutside;
-
-    if((nFibbersInside+nFibbersMiddle+nFibbersOutside)!=nTotalFibbers){
-
-        G4cout<<" "<<G4endl;
-        G4cout<<"The number of fibbers in rings are not equal no the total number of fibbers. Please fix it"<<G4endl;
-        G4cout<<" "<<G4endl;
-        exit(0);
-    }
-
-    G4VSolid* sourceVolume = new G4Tubs("sourceVolume",rInt,rSource,halfLength,0.,twopi);
-    G4LogicalVolume* sourceLogical = new G4LogicalVolume(sourceVolume,water,"sourceLogical");
-
-    G4int iFibber;
-
-
-    G4RotationMatrix rotm  = G4RotationMatrix();
-    rotm.rotateX(0*deg);
-    rotm.rotateY(0*deg);
-    rotm.rotateZ(0*deg);
-    G4Transform3D transform ;
-    G4Transform3D transformEndCap ;
-
-    //G4SubtractionSolid *sub;
-    G4SubtractionSolid *endCapSub;
-    //Fibbers
+   //G4SubtractionSolid *sub;
+   G4SubtractionSolid *endCapSub;
+     //Fibbers 
     G4VSolid* fibberSolid=new G4Tubs("fibberVolume",0*mm,rInt,halfTeflonLength,0.,twopi);
-    G4LogicalVolume* fibbersLogical = new G4LogicalVolume(fibberSolid,polystyrene,"fibbersLogical");
-
-    G4double phi, dPhiDummy;
-    G4double ring_R;
-    G4ThreeVector uz;
-
+   	G4LogicalVolume* fibbersLogical = new G4LogicalVolume(fibberSolid,polystyrene,"fibbersLogical");
+   
+	G4double phi, dPhiDummy;
+	G4double ring_R;
+	    G4ThreeVector uz;     
     G4ThreeVector positionDummy;
     G4ThreeVector position;
     G4ThreeVector positionEndCap;
-
-    for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
-
-        if (iFibber<nFibbersInside){
-            dPhiDummy=dPhi1;
-            ring_R=ring_R1;
-            //G4cout<<"Centro "<<iFibber<<G4endl;
-        }
-
-        if (iFibber>=nFibbersInside && iFibber<nFibbersMiddle+nFibbersInside){
-            dPhiDummy=dPhi2;
-            ring_R=ring_R2;
-            //G4cout<<"Meio "<<iFibber<<G4endl;
-        }
-
-        if (iFibber>=nFibbersMiddle+nFibbersInside){
-            dPhiDummy=dPhi3;
-            ring_R=ring_R3;
-            //G4cout<<"Fora "<<iFibber<<G4endl;
-        }
-
-        phi = iFibber*dPhiDummy;
-
-        uz = G4ThreeVector(std::cos(phi),  std::sin(phi),0);
-        positionDummy = (ring_R)*uz;
-        position = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),-halfLength);
-        positionEndCap = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),0);
-        transform = G4Transform3D(rotm,position);
-        transformEndCap = G4Transform3D(rotm,positionEndCap);
-
-
-
-        if (iFibber==0){
-            endCapSub=new G4SubtractionSolid("sub",endCapSolid,fibberSolid,transformEndCap);
-        }
-        else{
-            endCapSub=new G4SubtractionSolid("sub",endCapSub,fibberSolid,transformEndCap);
-        }
-
-
-
-        sourcePhysical[iFibber]=new G4PVPlacement(transformEndCap,             //rotation,position
-                        sourceLogical,            //its logical volume
-                        "sourcePhysical_"+itoa(iFibber),             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        iFibber,                 //copy number
-                        checkOverlaps);       // che
-
-
-
-
-          fibbersPhysical[iFibber]=new G4PVPlacement(transformEndCap,             //rotation,position
-                        fibbersLogical,            //its logical volume
-                        "fibbersPhysical_"+itoa(iFibber),             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        iFibber,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
+	
+	
+	
+  for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
+	  
+	  
+	  if (iFibber<nFibbersInside){
+		  dPhiDummy=dPhi1;
+		  ring_R=ring_R1;
+		  //G4cout<<"Centro "<<iFibber<<G4endl;
+		  }
+	  if (iFibber>=nFibbersInside && iFibber<nFibbersMiddle+nFibbersInside){
+		  dPhiDummy=dPhi2;
+		  ring_R=ring_R2;
+		  //G4cout<<"Meio "<<iFibber<<G4endl;
+		  }
+	  if (iFibber>=nFibbersMiddle+nFibbersInside){
+		  dPhiDummy=dPhi3;
+		  ring_R=ring_R3;
+		  //G4cout<<"Fora "<<iFibber<<G4endl;
+		  }
+	  
+    phi = iFibber*dPhiDummy;
+    
+   uz = G4ThreeVector(std::cos(phi),  std::sin(phi),0);     
+   positionDummy = (ring_R)*uz;
+    position = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),-halfLength);
+    positionEndCap = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),0);
+    transform = G4Transform3D(rotm,position);
+   transformEndCap = G4Transform3D(rotm,positionEndCap);
+	
+	
+	
+	if (iFibber==0){
+    endCapSub=new G4SubtractionSolid("sub",endCapSolid,fibberSolid,transformEndCap);
     }
+    else{
+		endCapSub=new G4SubtractionSolid("sub",endCapSub,fibberSolid,transformEndCap);
+		}
+		
+	
+	
+	sourcePhysical[iFibber]=new G4PVPlacement(transformEndCap,             //rotation,position
+                      sourceLogical,            //its logical volume
+                      "sourcePhysical_"+itoa(iFibber),             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      iFibber,                 //copy number
+                      checkOverlaps);       // che
+		
+		
+		
+	
+	fibbersPhysical[iFibber]=new G4PVPlacement(transformEndCap,             //rotation,position
+                      fibbersLogical,            //its logical volume
+                      "fibbersPhysical_"+itoa(iFibber),             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      iFibber,                 //copy number
+                      checkOverlaps);       // checking overlaps   
+                                   
+                      
+  }
+
+
+
+
+	positionEndCap=G4ThreeVector(0,0,-halfLEndCap);
+	transformEndCap = G4Transform3D(rotm,positionEndCap);
+	endCapSub=new G4SubtractionSolid("sub",endCapSub,supportRemoveSolid,transformEndCap);
+
+
+                    
+   ////Place EndCaps in world      
+   G4LogicalVolume* endCapLogical = new G4LogicalVolume(endCapSub,PMMA,"endCapLogical");          
+  G4VPhysicalVolume* endCapPhysical1=	new G4PVPlacement(0,             //rotation
+					G4ThreeVector(0.,0.,halfTeflonLength-halfLEndCap),					//position
+                      endCapLogical,            //its logical volume
+                      "endCapPhysical",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      0,                 //copy number
+                      checkOverlaps);       // checking overlaps                  
+ 
+  G4RotationMatrix *rotEndCap2  = new G4RotationMatrix();
+  rotEndCap2->rotateX(180*deg); 
+  rotEndCap2->rotateY(0*deg);
+  rotEndCap2->rotateZ(0*deg);                
+  
+ 	  G4VPhysicalVolume* endCapPhysical2=	new G4PVPlacement(rotEndCap2,             //rotation
+					G4ThreeVector(0.,0.,-halfTeflonLength+halfLEndCap),					//position
+                      endCapLogical,            //its logical volume
+                      "endCapPhysical2",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      1,                 //copy number
+                      checkOverlaps);       // checking overlaps    
+ 
+ 
+ 
+  ////Place support in world 
+ 
+  G4LogicalVolume* endCapSupportLogical = new G4LogicalVolume(supportSolid,PMMA,"endCapSupportLogical"); 
+  G4VPhysicalVolume* supportEndCapsPhysical=	new G4PVPlacement(0,             //rotation
+					G4ThreeVector(0.,0.,0.),					//position
+                      endCapSupportLogical,            //its logical volume
+                      "endCapSupportPhysical",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      0,                 //copy number
+                      checkOverlaps);       // checking overlaps   
+ 
+ 
+ 
+ 
+ 
+ ////Place silicone in world      
+ 
+ 
+ G4LogicalVolume* siliconeLogical = new G4LogicalVolume(siliconeSolid,Silicone,"siliconeLogical");
+ G4VPhysicalVolume* siliconePhysical1=	new G4PVPlacement(0,             //rotation
+					G4ThreeVector(0.,0.,halfTeflonLength+halfLengthSilicone),					//position
+                      siliconeLogical,            //its logical volume
+                      "siliconePhysical1",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      0,                 //copy number
+                      checkOverlaps);       // checking overlaps                  
+                 
+ 	  G4VPhysicalVolume* siliconePhysical2=	new G4PVPlacement(0,             //rotation
+					G4ThreeVector(0.,0.,-halfTeflonLength-halfLengthSilicone),					//position
+                      siliconeLogical,            //its logical volume
+                      "siliconePhysical2",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      1,                 //copy number
+                      checkOverlaps);       // checking overlaps    
+ 	
+ 	
+  ////Place PMT in world      
+ 
+ 
+ 
+ 
+ G4LogicalVolume* pmtLogical = new G4LogicalVolume(pmtSolid,glass,"pmtLogical");
+ G4LogicalVolume* photocathodeLogical = new G4LogicalVolume(photocathodeSolid,bialkaliPhoto,"photocathodeLogical"); 
+ 
+ G4VPhysicalVolume* pmtPhysical = new G4PVPlacement(0,G4ThreeVector(0,0,-halfLengthPMT+2*halfLengthPhotocathode),
+                                    photocathodeLogical,
+                                    "pmtAndPhotoPhysical",
+                                    pmtLogical,
+                                    false,
+                                    0,
+                                    checkOverlaps);
+ 
+ 
+ 
+ G4VPhysicalVolume* pmtPhysical1=	new G4PVPlacement(0,             //rotation
+					G4ThreeVector(0.,0.,halfTeflonLength+2*halfLengthSilicone+halfLengthPMT),					//position
+                     pmtLogical,            //its logical volume
+                      "pmtPhysical1",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      0,                 //copy number
+                      checkOverlaps);       // checking overlaps  
+                      
+                                      
+   G4RotationMatrix rotPMT2  = G4RotationMatrix();
+  rotPMT2.rotateX(0*deg); 
+  rotPMT2.rotateY(180*deg);
+  rotPMT2.rotateZ(0*deg); 
+  G4ThreeVector positionPMT2 =  G4ThreeVector(0.,0.,-halfTeflonLength-2*halfLengthSilicone-halfLengthPMT);
+  
+  
+  G4Transform3D transformPMT2 = G4Transform3D(rotPMT2,positionPMT2);
+
+  
+  
+              
+ 	  G4VPhysicalVolume* pmtPhysical2=	new G4PVPlacement(transformPMT2,
+                      pmtLogical,            //its logical volume
+                      "pmtPhysical2",             //its name
+                      worldLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      1,                 //copy number
+                      checkOverlaps);       // checking overlaps    
+ 		
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	//G4cout<<"NDAUGHTERS "<<worldLogical->GetNoDaughters()<<G4endl;
+ 	
+ 	
+ // ------------- Surfaces --------------
+//
+// Water-Fibbers
 
 
+G4int fSurfaceRoughness=0.7;
+     G4OpticalSurface* opWaterSurface = new G4OpticalSurface("WaterSurface");          // Surface Name
+     opWaterSurface->SetModel(unified);                  // SetModel
+     opWaterSurface->SetType(dielectric_dielectric);   // SetType
+      opWaterSurface->SetFinish(polished);                 // SetFinish
+     
 
+G4LogicalBorderSurface* WaterFibberSurface[nTotalFibbers];
+G4LogicalBorderSurface* WorldFibberSurface[nTotalFibbers];
+for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
+WaterFibberSurface[iFibber] = new G4LogicalBorderSurface("WaterFibberSurface"+itoa(iFibber),fibbersPhysical[iFibber],sourcePhysical[iFibber],opWaterSurface);
+WorldFibberSurface[iFibber] = new G4LogicalBorderSurface("WorldFibberSurface"+itoa(iFibber),fibbersPhysical[iFibber],worldPhysical,opWaterSurface);
+}
 
-    positionEndCap=G4ThreeVector(0,0,-halfLEndCap);
-    transformEndCap = G4Transform3D(rotm,positionEndCap);
-    endCapSub=new G4SubtractionSolid("sub",endCapSub,supportRemoveSolid,transformEndCap);
+// Fibbers-PMMA
+     G4OpticalSurface* opPS_PMMA = new G4OpticalSurface("PS-PMMASurface",          // Surface Name
+                                      glisur,                  // SetModel
+                                      ground,                  // SetFinish
+                                      dielectric_dielectric,   // SetType
+                                      fSurfaceRoughness);      // SetPolish
 
 
-
-    ////Place EndCaps in world
-    G4LogicalVolume* endCapLogical = new G4LogicalVolume(endCapSub,PMMA,"endCapLogical");
-    G4VPhysicalVolume* endCapPhysical1=	new G4PVPlacement(0,             //rotation
-                                          G4ThreeVector(0.,0.,halfTeflonLength-halfLEndCap),					//position
-                        endCapLogical,            //its logical volume
-                        "endCapPhysical",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        0,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-    G4RotationMatrix *rotEndCap2  = new G4RotationMatrix();
-    rotEndCap2->rotateX(180*deg);
-    rotEndCap2->rotateY(0*deg);
-    rotEndCap2->rotateZ(0*deg);
-
-    G4VPhysicalVolume* endCapPhysical2=	new G4PVPlacement(rotEndCap2,             //rotation
-                                          G4ThreeVector(0.,0.,-halfTeflonLength+halfLEndCap),					//position
-                        endCapLogical,            //its logical volume
-                        "endCapPhysical2",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        1,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
-
-    ////Place support in world
-    G4LogicalVolume* endCapSupportLogical = new G4LogicalVolume(supportSolid,PMMA,"endCapSupportLogical");
-    G4VPhysicalVolume* supportEndCapsPhysical=	new G4PVPlacement(0,             //rotation
-                                          G4ThreeVector(0.,0.,0.),					//position
-                        endCapSupportLogical,            //its logical volume
-                        "endCapSupportPhysical",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        0,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
-
-
-
-    ///Place silicone in world
-    G4LogicalVolume* siliconeLogical = new G4LogicalVolume(siliconeSolid,Silicone,"siliconeLogical");
-    G4VPhysicalVolume* siliconePhysical1=	new G4PVPlacement(0,             //rotation
-                                          G4ThreeVector(0.,0.,halfTeflonLength+halfLengthSilicone),					//position
-                        siliconeLogical,            //its logical volume
-                        "siliconePhysical1",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        0,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-    G4VPhysicalVolume* siliconePhysical2=	new G4PVPlacement(0,             //rotation
-                                          G4ThreeVector(0.,0.,-halfTeflonLength-halfLengthSilicone),					//position
-                        siliconeLogical,            //its logical volume
-                        "siliconePhysical2",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        1,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
-    ////Place PMT in world
-
-
-
-
-    G4LogicalVolume* pmtLogical = new G4LogicalVolume(pmtSolid,glass,"pmtLogical");
-    G4LogicalVolume* photocathodeLogical = new G4LogicalVolume(photocathodeSolid,bialkaliPhoto,"photocathodeLogical");
-
-    G4VPhysicalVolume* pmtPhysical = new G4PVPlacement(0,G4ThreeVector(0,0,-halfLengthPMT+2*halfLengthPhotocathode),
-                                      photocathodeLogical,
-                                      "pmtAndPhotoPhysical",
-                                      pmtLogical,
-                                      false,
-                                      0,
-                                      checkOverlaps);
-
-
-
-    G4VPhysicalVolume* pmtPhysical1=	new G4PVPlacement(0,             //rotation
-                                          G4ThreeVector(0.,0.,halfTeflonLength+2*halfLengthSilicone+halfLengthPMT),					//position
-                       pmtLogical,            //its logical volume
-                        "pmtPhysical1",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        0,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
-    G4RotationMatrix rotPMT2  = G4RotationMatrix();
-    rotPMT2.rotateX(0*deg);
-    rotPMT2.rotateY(180*deg);
-    rotPMT2.rotateZ(0*deg);
-    G4ThreeVector positionPMT2 =  G4ThreeVector(0.,0.,-halfTeflonLength-2*halfLengthSilicone-halfLengthPMT);
-
-
-    G4Transform3D transformPMT2 = G4Transform3D(rotPMT2,positionPMT2);
-
-    G4VPhysicalVolume* pmtPhysical2=	new G4PVPlacement(transformPMT2,
-                        pmtLogical,            //its logical volume
-                        "pmtPhysical2",             //its name
-                        worldLogical,             //its mother  volume
-                        true,                 //no boolean operation
-                        1,                 //copy number
-                        checkOverlaps);       // checking overlaps
-
-
-
-
-
-
-
-    //G4cout<<"NDAUGHTERS "<<worldLogical->GetNoDaughters()<<G4endl;
-
-
-    // ------------- Surfaces --------------
-    //
-    // Water-Fibbers
-
-
-    G4int fSurfaceRoughness=0.7;
-    G4OpticalSurface* opWaterSurface = new G4OpticalSurface("WaterSurface");          // Surface Name
-        opWaterSurface->SetModel(unified);                  // SetModel
-        opWaterSurface->SetType(dielectric_dielectric);   // SetType
-        opWaterSurface->SetFinish(polished);                 // SetFinish
-
-
-    G4LogicalBorderSurface* WaterFibberSurface[nTotalFibbers];
-    G4LogicalBorderSurface* WorldFibberSurface[nTotalFibbers];
-
-    for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
-    WaterFibberSurface[iFibber] = new G4LogicalBorderSurface("WaterFibberSurface"+itoa(iFibber),fibbersPhysical[iFibber],sourcePhysical[iFibber],opWaterSurface);
-    WorldFibberSurface[iFibber] = new G4LogicalBorderSurface("WorldFibberSurface"+itoa(iFibber),fibbersPhysical[iFibber],worldPhysical,opWaterSurface);
-    }
-
-    // Fibbers-PMMA
-    G4OpticalSurface* opPS_PMMA = new G4OpticalSurface("PS-PMMASurface",          // Surface Name
-                                        glisur,                  // SetModel
-                                        ground,                  // SetFinish
-                                        dielectric_dielectric,   // SetType
-                                        fSurfaceRoughness);      // SetPolish
-
-
-    G4LogicalBorderSurface* PMMAFibberSurface1[nTotalFibbers];
-    G4LogicalBorderSurface* PMMAFibberSurface2[nTotalFibbers];
-    for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
-    PMMAFibberSurface1[iFibber] = new G4LogicalBorderSurface("PMMAFibberSurface1"+itoa(iFibber),fibbersPhysical[iFibber],endCapPhysical1,opPS_PMMA);
-    PMMAFibberSurface2[iFibber] = new G4LogicalBorderSurface("PMMAFibberSurface2"+itoa(iFibber),fibbersPhysical[iFibber],endCapPhysical2,opPS_PMMA);
-    }
-
-
-    // PMMA-Water
-    G4OpticalSurface* opPMMA_Water = new G4OpticalSurface("PMMAWaterSurface");
-
-        opPMMA_Water->SetModel(unified);                  // SetModel
-        opPMMA_Water->SetType(dielectric_dielectric);   // SetType
-        opPMMA_Water->SetFinish(polished);                 // SetFinish
-
-    G4LogicalBorderSurface* PMMAWaterSurface1 = new G4LogicalBorderSurface("PMMAWaterSurface1",endCapPhysical1,worldPhysical,opPMMA_Water);
-    G4LogicalBorderSurface* PMMAWaterSurface2 = new G4LogicalBorderSurface("PMMAWaterSurface2",endCapPhysical2,worldPhysical,opPMMA_Water);
-    G4LogicalBorderSurface* PMMAWaterSurface3 = new G4LogicalBorderSurface("PMMAWaterSurface3",supportEndCapsPhysical,worldPhysical,opPMMA_Water);
-
-
-    // PMMA-Silicone
-
-    G4OpticalSurface* opPMMA_Silicone = new G4OpticalSurface("PMMASiliconeSurface");
-
-        opPMMA_Silicone->SetModel(unified);                  // SetModel
-        opPMMA_Silicone->SetType(dielectric_dielectric);   // SetType
-        opPMMA_Silicone->SetFinish(polished);                 // SetFinish
-
-
-    G4LogicalBorderSurface* PMMASiliconeSurface1 = new G4LogicalBorderSurface("PMMASiliconeSurface1",endCapPhysical1,siliconePhysical1,opPMMA_Silicone);
-    G4LogicalBorderSurface* PMMASiliconeSurface2 = new G4LogicalBorderSurface("PMMASiliconeSurface2",endCapPhysical2,siliconePhysical2,opPMMA_Silicone);
-
-
-    // PMMA-Teflon
-    G4int fSurfaceRoughnessTeflon=0.9;
-
-    G4OpticalSurface* opPMMA_PTFE = new G4OpticalSurface("PMMAPTFESurface");
-
-        opPMMA_PTFE->SetModel(glisur);                  // SetModel
-        opPMMA_PTFE->SetType(dielectric_metal);   // SetType
-        opPMMA_PTFE->SetFinish(ground);                 // SetFinish
-        opPMMA_PTFE->SetPolish(fSurfaceRoughnessTeflon);// SetPolish
-
-    G4LogicalBorderSurface* PMMAPTFE1 = new G4LogicalBorderSurface("PMMAPFTE1",endCapPhysical1,teflonTubePhysical,opPMMA_PTFE);
-    G4LogicalBorderSurface* PMMAPTFE2 = new G4LogicalBorderSurface("PMMAPTFE2",endCapPhysical2,teflonTubePhysical,opPMMA_PTFE);
-
-
-
-
-    // Teflon-Water
-
-    G4OpticalSurface* opPTFE_Water = new G4OpticalSurface("PTFEWaterSurface");
-
-        opPTFE_Water->SetModel(glisur);                  // SetModel
-        opPTFE_Water->SetType(dielectric_metal);   // SetType
-        opPTFE_Water->SetFinish(ground);                 // SetFinish
-        opPTFE_Water->SetPolish(fSurfaceRoughnessTeflon);// SetPolish
-
-    G4LogicalBorderSurface* PTFEWater = new G4LogicalBorderSurface("PFTEWater",worldPhysical,teflonTubePhysical,opPTFE_Water);
-
-
-
-    //SILICON-GLASS
-
-    G4OpticalSurface* opSilicon_Glass = new G4OpticalSurface("SiliconGlassSurface");
-        opSilicon_Glass->SetModel(unified);                  // SetModel
-        opSilicon_Glass->SetType(dielectric_dielectric);   // SetType
-        opSilicon_Glass->SetFinish(polished);                 // SetFinish
-
-    G4LogicalBorderSurface* SiliconGlass1 = new G4LogicalBorderSurface("SiliconGlass1",siliconePhysical1,pmtPhysical1,opSilicon_Glass);
-    G4LogicalBorderSurface* SiliconGlass2 = new G4LogicalBorderSurface("SiliconGlass2",siliconePhysical2,pmtPhysical2,opSilicon_Glass);
-
-
-    //GLASS-PHOTOCATHODE
-
-    G4OpticalSurface* opPhotocathode=    new G4OpticalSurface("opPhotocathode",glisur,ground,dielectric_metal);
-
-    G4MaterialPropertiesTable *photoMPT=fMaterials->GetPhotoMPT();
-    opPhotocathode->SetMaterialPropertiesTable(photoMPT);
-
-
-    ////**Create logical skin surfaces
-    G4LogicalSkinSurface *photoSkinSurf=new G4LogicalSkinSurface("PhotocathodeSurface",photocathodeLogical,opPhotocathode);
-
-
-
-    // visualization attributes ------------------------------------------------
-
+G4LogicalBorderSurface* PMMAFibberSurface1[nTotalFibbers];
+G4LogicalBorderSurface* PMMAFibberSurface2[nTotalFibbers];
+for (iFibber = 0; iFibber < nTotalFibbers ; iFibber++) {
+PMMAFibberSurface1[iFibber] = new G4LogicalBorderSurface("PMMAFibberSurface1"+itoa(iFibber),fibbersPhysical[iFibber],endCapPhysical1,opPS_PMMA);
+PMMAFibberSurface2[iFibber] = new G4LogicalBorderSurface("PMMAFibberSurface2"+itoa(iFibber),fibbersPhysical[iFibber],endCapPhysical2,opPS_PMMA);
+}
+
+
+// PMMA-Water
+
+G4OpticalSurface* opPMMA_Water = new G4OpticalSurface("PMMAWaterSurface");
+
+		opPMMA_Water->SetModel(unified);                  // SetModel
+		opPMMA_Water->SetType(dielectric_dielectric);   // SetType
+		opPMMA_Water->SetFinish(polished);                 // SetFinish
+     
+
+
+
+G4LogicalBorderSurface* PMMAWaterSurface1 = new G4LogicalBorderSurface("PMMAWaterSurface1",endCapPhysical1,worldPhysical,opPMMA_Water);
+G4LogicalBorderSurface* PMMAWaterSurface2 = new G4LogicalBorderSurface("PMMAWaterSurface2",endCapPhysical2,worldPhysical,opPMMA_Water);
+G4LogicalBorderSurface* PMMAWaterSurface3 = new G4LogicalBorderSurface("PMMAWaterSurface3",supportEndCapsPhysical,worldPhysical,opPMMA_Water);
+
+
+// PMMA-Silicone
+
+G4OpticalSurface* opPMMA_Silicone = new G4OpticalSurface("PMMASiliconeSurface");
+
+		opPMMA_Silicone->SetModel(unified);                  // SetModel
+		opPMMA_Silicone->SetType(dielectric_dielectric);   // SetType
+		opPMMA_Silicone->SetFinish(polished);                 // SetFinish
+     
+
+G4LogicalBorderSurface* PMMASiliconeSurface1 = new G4LogicalBorderSurface("PMMASiliconeSurface1",endCapPhysical1,siliconePhysical1,opPMMA_Silicone);
+G4LogicalBorderSurface* PMMASiliconeSurface2 = new G4LogicalBorderSurface("PMMASiliconeSurface2",endCapPhysical2,siliconePhysical2,opPMMA_Silicone);
+
+
+
+
+
+
+
+// PMMA-Teflon
+G4int fSurfaceRoughnessTeflon=0.9;
+
+G4OpticalSurface* opPMMA_PTFE = new G4OpticalSurface("PMMAPTFESurface");
+
+opPMMA_PTFE->SetModel(glisur);                  // SetModel
+opPMMA_PTFE->SetType(dielectric_metal);   // SetType
+opPMMA_PTFE->SetFinish(ground);                 // SetFinish
+ opPMMA_PTFE->SetPolish(fSurfaceRoughnessTeflon);// SetPolish
+
+
+
+G4LogicalBorderSurface* PMMAPTFE1 = new G4LogicalBorderSurface("PMMAPFTE1",endCapPhysical1,teflonTubePhysical,opPMMA_PTFE);
+G4LogicalBorderSurface* PMMAPTFE2 = new G4LogicalBorderSurface("PMMAPTFE2",endCapPhysical2,teflonTubePhysical,opPMMA_PTFE);
+
+
+
+
+// Teflon-Water
+
+G4OpticalSurface* opPTFE_Water = new G4OpticalSurface("PTFEWaterSurface");
+
+opPTFE_Water->SetModel(glisur);                  // SetModel
+opPTFE_Water->SetType(dielectric_metal);   // SetType
+opPTFE_Water->SetFinish(ground);                 // SetFinish
+opPTFE_Water->SetPolish(fSurfaceRoughnessTeflon);// SetPolish
+
+G4LogicalBorderSurface* PTFEWater = new G4LogicalBorderSurface("PFTEWater",worldPhysical,teflonTubePhysical,opPTFE_Water);
+
+
+
+//SILICON-GLASS
+
+G4OpticalSurface* opSilicon_Glass = new G4OpticalSurface("SiliconGlassSurface");
+		opSilicon_Glass->SetModel(unified);                  // SetModel
+		opSilicon_Glass->SetType(dielectric_dielectric);   // SetType
+		opSilicon_Glass->SetFinish(polished);                 // SetFinish
+     
+G4LogicalBorderSurface* SiliconGlass1 = new G4LogicalBorderSurface("SiliconGlass1",siliconePhysical1,pmtPhysical1,opSilicon_Glass);
+G4LogicalBorderSurface* SiliconGlass2 = new G4LogicalBorderSurface("SiliconGlass2",siliconePhysical2,pmtPhysical2,opSilicon_Glass);
+
+
+//GLASS-PHOTOCATHODE
+
+G4OpticalSurface* opPhotocathode=    new G4OpticalSurface("opPhotocathode",glisur,ground,dielectric_metal);
+
+G4MaterialPropertiesTable *photoMPT=fMaterials->GetPhotoMPT();
+opPhotocathode->SetMaterialPropertiesTable(photoMPT);
+
+ 
+  ////**Create logical skin surfaces
+G4LogicalSkinSurface *photoSkinSurf=new G4LogicalSkinSurface("PhotocathodeSurface",photocathodeLogical,opPhotocathode);
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
+//    // visualization attributes ------------------------------------------------
+    
     G4VisAttributes* visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0));
     visAttributes->SetVisibility(false);
     worldLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
-
+    
     visAttributes = new G4VisAttributes(G4Colour(1.0,0.0,1.0));
     visAttributes->SetVisibility(true);
     teflonTubeLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
-
+    
 
     visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,0.0));
     visAttributes->SetVisibility(true);
@@ -538,8 +561,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     visAttributes->SetVisibility(true);
     siliconeLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
-
-    visAttributes = new G4VisAttributes(G4Colour(0.5,0.5,0.0));
+ 
+   visAttributes = new G4VisAttributes(G4Colour(0.5,0.5,0.0));
     visAttributes->SetVisibility(true);
     pmtLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
@@ -548,12 +571,12 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     visAttributes->SetVisibility(true);
     photocathodeLogical->SetVisAttributes(visAttributes);
     fVisAttributes.push_back(visAttributes);
-
+ 
 
 
 
     // return the world physical volume ----------------------------------------
-
+    
     return worldPhysical;
 }
 
@@ -561,68 +584,70 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 void DetectorConstruction::ConstructSDandField()
 {
-    //// Sensitive detectors
+  //// Sensitive detectors
 
-    G4String fibberSDname = "/fibberSD";
-    fibberSD* aFibberSD = new fibberSD(fibberSDname,"fibberHitsCollection");
-    G4SDManager::GetSDMpointer()->AddNewDetector(aFibberSD);
-    //// Setting aFibberSD to all logical volumes with the same name
-    //// of "fibberLogical".
-    SetSensitiveDetector("sourceLogical", aFibberSD, true);
-    //SetSensitiveDetector("fibbersLogical", aFibberSD, true);
-    ////SetSensitiveDetector("siliconeLogical", aFibberSD, true);
+  G4String fibberSDname = "/fibberSD";
+  fibberSD* aFibberSD = new fibberSD(fibberSDname,"fibberHitsCollection");
+  G4SDManager::GetSDMpointer()->AddNewDetector(aFibberSD);
+  //// Setting aFibberSD to all logical volumes with the same name 
+  //// of "fibberLogical".
+  SetSensitiveDetector("sourceLogical", aFibberSD, true);
+  //SetSensitiveDetector("fibbersLogical", aFibberSD, true);
+  ////SetSensitiveDetector("siliconeLogical", aFibberSD, true);
+   
+   
+   //PMT SD
+   
+   PMTSD* pmtSD = new PMTSD("pmtSD","HitsCollectionPMTs");
+   G4SDManager::GetSDMpointer()->AddNewDetector(pmtSD);
+   SetSensitiveDetector("photocathodeLogical", pmtSD,true);
 
+}
 
-     //PMT SD
-     PMTSD* pmtSD = new PMTSD("pmtSD","HitsCollectionPMTs");
-     G4SDManager::GetSDMpointer()->AddNewDetector(pmtSD);
-     SetSensitiveDetector("photocathodeLogical", pmtSD,true);
-  }
-
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  G4VPhysicalVolume* DetectorConstruction::GetWaterPV(G4int number){
-
-          return sourcePhysical[number];
-  }
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......	}
-
-
-  G4VPhysicalVolume* DetectorConstruction::GetFibbersPV(G4int number){
-
-    return fibbersPhysical[number];
-  }
-
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-  G4int DetectorConstruction::GetNFibbers()
-  {
-    return nTotalFibbers;
-  }
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+G4VPhysicalVolume* DetectorConstruction::GetWaterPV(G4int number){
+	
+	return sourcePhysical[number];
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......	}
 
 
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  G4double DetectorConstruction::GetSourceRadius()
-  {
-    return rSource;
-  }
+G4VPhysicalVolume* DetectorConstruction::GetFibbersPV(G4int number){
+	
+	return fibbersPhysical[number];
+	}
 
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  G4double DetectorConstruction::GetSourceLength()
-  {
-    return halfLength;
-  }
-
-
-  G4double DetectorConstruction::GetFibberRadius()
-  {
-    return rInt;
-  }
-
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......	
+	
+G4int DetectorConstruction::GetNFibbers()
+{
+  return nTotalFibbers;
+}	
 
 
-  G4Material* DetectorConstruction::FindMaterial(G4String name) {
-      G4Material* material = G4Material::GetMaterial(name,true);
-      return material;
-  }
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+G4double DetectorConstruction::GetSourceRadius()
+{
+  return rSource;
+}	
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+G4double DetectorConstruction::GetSourceLength()
+{
+  return halfLength;
+}	
+
+
+G4double DetectorConstruction::GetFibberRadius()
+{
+  return rInt;
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+
+G4Material* DetectorConstruction::FindMaterial(G4String name) {
+    G4Material* material = G4Material::GetMaterial(name,true);
+    return material;
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
