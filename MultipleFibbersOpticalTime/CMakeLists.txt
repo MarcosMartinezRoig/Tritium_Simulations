@@ -48,7 +48,6 @@ set(_SCRIPTS
   TRITIUMSpectrum.txt
   run1.mac 
   vis.mac
-  gui.mac
 #  scoring.mac
   )
 

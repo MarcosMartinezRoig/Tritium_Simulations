@@ -6,4 +6,4 @@
 /control/saveHistory
 /run/verbose 1
 /control/execute TritiumSource.mac
-#/run/beamOn 1
+/run/beamOn 10000

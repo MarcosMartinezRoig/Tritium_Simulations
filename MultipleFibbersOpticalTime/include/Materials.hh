@@ -67,10 +67,10 @@ class Materials
     G4Material*        fWater;
     G4Material*        fPMMA;
     G4Material*        fPolystyrene;
-    G4Material*        fTeflon;
+     G4Material*        fTeflon;
     G4Material*        fSilicone;
-    G4Material*	       fGlass;
-    G4Material*        fPhotocathode;
+    G4Material* fGlass;
+	G4Material* fPhotocathode;
 };
 
 #endif /*Materials_h*/
