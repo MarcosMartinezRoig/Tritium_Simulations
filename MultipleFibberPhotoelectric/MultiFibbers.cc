@@ -30,12 +30,9 @@
 
 #include "DetectorConstruction.hh"
 #include "ActionInitialization.hh"
+
 #include "G4EmStandardPhysics.hh"
-#include "G4UImanager.hh"
 #include "PhysicsList.hh"
-
-
-
 
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
@@ -43,16 +40,14 @@
 #include "G4RunManager.hh"
 #endif
 
+#include "G4UImanager.hh"
 
 //#include "G4StepLimiterPhysics.hh"
 
-#ifdef G4VIS_USE
 #include "G4VisExecutive.hh"
-#endif
 
-#ifdef G4UI_USE
 #include "G4UIExecutive.hh"
-#endif
+
 
 //#include "G4ScoringManager.hh"
 
@@ -65,22 +60,41 @@
 
 int main(int argc,char** argv)
 {
+    G4int RunNumber;
+
+    G4UIExecutive *ui =0;
+
+    if (argc<2){
+        G4cout<<" "<<G4endl;
+        G4cout<<"YOU MUST PROVIDE A RUN NUMBER AS ARGUMENT (0 without visualization, 1 with visualization)."<<G4endl;
+        G4cout<<"Ex: ./MultipleFibbers 1 "<<G4endl;
+        G4cout<<"Ex: ./MultipleFibbers run.mac 1"<<G4endl;
+        G4cout<<" "<<G4endl;
+
+        exit(0);
+    }
+
+    else{
+        if (argc>2) {
+            RunNumber = atoi(argv[2]);
+
+            if(RunNumber!=0 && RunNumber!=1){
+            G4cout<<"You have used an ilegal RunNumber (0 without visualization or 1 with visualization) "<<G4endl;
+            exit(0);
+        }
+        }
+        else {
+            RunNumber = atoi(argv[1]);
+
+            if(RunNumber!=0 && RunNumber!=1){
+            G4cout<<"You have used an ilegal RunNumber (0 without visualization or 1 with visualization) "<<G4endl;
+            exit(0);
+            }
+
+            ui = new G4UIExecutive(argc,argv);
+        }
 
 
-	if (argc<2){
-
-
-		G4cout<<" "<<G4endl;
-		G4cout<<"YOU MUST PROVIDE A RUN NUMBER AS ARGUMENT."<<G4endl;
-		G4cout<<"Ex: ./MultipleFibbers 2 "<<G4endl;
-		G4cout<<"Ex: ./MultipleFibbers run.mac 2"<<G4endl;
-		G4cout<<" "<<G4endl;
-
-		exit(0);
-		}
-	else
-
-	{
 
     // Construct the default run manager
     // Note that if we have built G4 with support for Multi-threading we set it here
@@ -95,8 +109,8 @@ int main(int argc,char** argv)
 
 
     // Activate UI-command base scorer
-//    G4ScoringManager * scManager = G4ScoringManager::GetScoringManager();
-//    scManager->SetVerboseLevel(1);
+    //G4ScoringManager * scManager = G4ScoringManager::GetScoringManager();
+    //scManager->SetVerboseLevel(1);
 
     // Mandatory user initialization classes
 
@@ -110,72 +124,57 @@ int main(int argc,char** argv)
     //The Physics
 
      runManager->SetUserInitialization(new PhysicsList());
+
+
     //====================
-	// User action initialization
+    // User action initialization
+    auto actionInitialization = new ActionInitialization(detConstruction,RunNumber);
+    runManager->SetUserInitialization(actionInitialization);
 
-G4int RunNumber;
+    //Needed with Qt sessions
+    // Initialize Geant4 kernel
+    runManager->Initialize();
 
-
-	 if (argc>2) {
-        // execute an argument macro file if exist
-        RunNumber = atoi(argv[2]);
-    }
-    else {RunNumber = atoi(argv[1]);}
-
-
-	auto actionInitialization = new ActionInitialization(detConstruction,RunNumber);
-
-	runManager->SetUserInitialization(actionInitialization);
-
-
-    //If we have Support for Visualization
-#ifdef G4VIS_USE
     // Visualization manager construction
     G4VisManager* visManager = new G4VisExecutive;
     // G4VisExecutive can take a verbosity argument - see /vis/verbose guidance.
     // G4VisManager* visManager = new G4VisExecutive("Quiet");
     visManager->Initialize();
-#endif
 
     // Get the pointer to the User Interface manager
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-    if (argc>2) {
+
+
+    if(!ui){
         // execute an argument macro file if exist
         G4String command = "/control/execute ";
         G4String fileName = argv[1];
         UImanager->ApplyCommand(command+fileName);
     }
-    else {
 
-        //Needed with Qt sessions
-        // Initialize Geant4 kernel
-        runManager->Initialize();
+    if(ui)
+    {
+        //If we have Support for Visualization
+        if(RunNumber==1){
+            // start interactive session
+            UImanager->ApplyCommand("/control/execute init_vis.mac");}
+        if(RunNumber==0){
+            UImanager->ApplyCommand("/control/execute init.mac");}
 
-        // start interactive session
-#ifdef G4UI_USE
-        G4UIExecutive* ui = new G4UIExecutive(argc, argv);
-#ifdef G4VIS_USE
-        UImanager->ApplyCommand("/control/execute init_vis.mac");
-#else
-        UImanager->ApplyCommand("/control/execute init.mac");
-#endif
-//        if (ui->IsGUI())
-//            UImanager->ApplyCommand("/control/execute gui.mac");
+        //if (ui->IsGUI())
+        //UImanager->ApplyCommand("/control/execute gui.mac");
         ui->SessionStart();
 
         delete ui;
-#endif
+        delete visManager;
+
     }
 
     // Job termination
     // Free the store: user actions, physics_list and detector_description are
     // owned and deleted by the run manager, so they should not be deleted
     // in the main() program !
-
-#ifdef G4VIS_USE
-    delete visManager;
-#endif
     delete runManager;
 
     return 0;

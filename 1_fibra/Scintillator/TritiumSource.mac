@@ -1,0 +1,12 @@
+# for PrimaryGeneratorGPS
+#
+/gps/ang/type iso
+/gps/ene/type Arb
+/gps/hist/file TRITIUMSpectrum.txt
+/gps/hist/inter Spline
+/gps/source/intensity 100
+#/gps/time
+
+#gps/source/show
+
+#run/beamOn 100

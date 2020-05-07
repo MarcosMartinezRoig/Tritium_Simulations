@@ -1,0 +1,7 @@
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/install/strip.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/edit_cache.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/Scintillator.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/rebuild_cache.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/list_install_components.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/install/local.dir
+/home/marcosmr/Escritorio/1_fibra/Scintillator/build/CMakeFiles/install.dir
