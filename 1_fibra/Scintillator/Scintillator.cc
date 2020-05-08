@@ -124,13 +124,14 @@ int main(int argc,char** argv)
         ui->SessionStart();
 
         delete ui;
-        delete visManager;
     }
 
     // Job termination
     // Free the store: user actions, physics_list and detector_description are
     // owned and deleted by the run manager, so they should not
     // be deleted in the main() program !
+
+    delete visManager;
     delete runManager;
 
     return 0;}
