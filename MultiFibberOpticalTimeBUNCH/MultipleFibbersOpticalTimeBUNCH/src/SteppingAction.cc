@@ -51,46 +51,43 @@ SteppingAction::SteppingAction(
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 SteppingAction::~SteppingAction()
-{ 
-}
+{}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void SteppingAction::UserSteppingAction(const G4Step* step)
 {
-// Collect energy and track length step by step
+    // Collect energy and track length step by step
 
-  // get volume of the current step
-  G4VPhysicalVolume* volume 
-    = step->GetPreStepPoint()->GetTouchableHandle()->GetVolume();
+    // get volume of the current step
+    G4VPhysicalVolume* volume = step->GetPreStepPoint()->GetTouchableHandle()->GetVolume();
   
   
-  // energy deposit
-  G4double edep = step->GetTotalEnergyDeposit();
-  G4String volName;
-  // step length
-  G4double stepLength = 0.;
-  if ( step->GetTrack()->GetDefinition()->GetPDGCharge() != 0. ) {
-    stepLength = step->GetStepLength();
-    
-  }
+    // energy deposit
+    G4double edep = step->GetTotalEnergyDeposit();
+    G4String volName;
+
+    // step length
+    G4double stepLength = 0.;
+    if ( step->GetTrack()->GetDefinition()->GetPDGCharge() != 0. )
+    {
+        stepLength = step->GetStepLength();
+    }
       
     volName=volume->GetName();
     G4String containt="sourcePhysical_";
     
-    if( volName.contains(containt)){
-        
-    fEventAction->AddWater(edep,stepLength);
-  }
+    if( volName.contains(containt))
+    {
+        fEventAction->AddWater(edep,stepLength);
+    }
   
   
   
-  if( volName.contains("fibbersPhysical_")){
-        
-    fEventAction->AddFibbers(edep,stepLength);
-  }
-  
-
+    if( volName.contains("fibbersPhysical_"))
+    {
+        fEventAction->AddFibbers(edep,stepLength);
+    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

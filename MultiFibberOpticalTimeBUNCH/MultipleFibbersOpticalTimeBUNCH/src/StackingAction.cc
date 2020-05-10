@@ -56,31 +56,33 @@ StackingAction::~StackingAction() { }
 G4ClassificationOfNewTrack
       StackingAction::ClassifyNewTrack(const G4Track * aTrack)
 {
-  G4ParticleDefinition* particleType = aTrack->GetDefinition();
+    G4ParticleDefinition* particleType = aTrack->GetDefinition();
 
-  // keep primary particle
-  if (aTrack->GetParentID() == 0) return fUrgent;
+    // keep primary particle
+    if (aTrack->GetParentID() == 0) return fUrgent;
 
-  if (particleType == G4OpticalPhoton::OpticalPhotonDefinition()) {
-     // keep optical photon
-     fPhotonCounter++;
-     return fUrgent;
-  } else {
-     // discard all other secondaries
-     // return fKill;
-  }
-  return fUrgent;
+    if (particleType == G4OpticalPhoton::OpticalPhotonDefinition()) {
+        // keep optical photon
+        fPhotonCounter++;
+        return fUrgent;
+    }
+    else {
+        // discard all other secondaries
+        // return fKill;
+    }
+
+    return fUrgent;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void StackingAction::NewStage() {
-   //G4cout << "Number of optical photons produces in this event : "
-          //<< fPhotonCounter << G4endl;
+    //G4cout << "Number of optical photons produces in this event : "
+        //<< fPhotonCounter << G4endl;
           
-   // get analysis manager
-  auto analysisManager = G4AnalysisManager::Instance();       
-  analysisManager->FillNtupleIColumn(0,9, fPhotonCounter);
+    // get analysis manager
+    auto analysisManager = G4AnalysisManager::Instance();
+    analysisManager->FillNtupleIColumn(0,9, fPhotonCounter);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

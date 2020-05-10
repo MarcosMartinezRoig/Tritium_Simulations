@@ -210,8 +210,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4VSolid* fibberSolid=new G4Tubs("fibberVolume",0*mm,rInt,fibberHalfLength,0.,twopi);//fibber not entering the endcap
     fibbersLogical = new G4LogicalVolume(fibberSolid,polystyrene,"fibbersLogical");
    
-    G4double phi, dPhiDummy;
-    G4double ring_R;
+    G4double phi;
+    //G4double ring_R;
     G4ThreeVector uz;
     G4ThreeVector positionDummy;
     //G4ThreeVector position;

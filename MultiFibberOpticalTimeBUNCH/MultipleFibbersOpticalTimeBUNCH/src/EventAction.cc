@@ -86,11 +86,7 @@ void EventAction::BeginOfEventAction(const G4Event* event)
         G4String colNam;
 
         hitsCollID = SDman->GetCollectionID(colNam="hitsCollectionPMTs");
-
     }
-  
-  
-  
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -108,8 +104,10 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
     if(hitsCollID<0) return;
 
+    //It contain all the events which have happened
     G4HCofThisEvent * HCE = event->GetHCofThisEvent();
 
+    // array of PMTHits variables
     PMTHitsCollection* HC = 0;
     nHitPMT0=0;
     nHitPMT1=0;
@@ -118,6 +116,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
     if(HCE)
     {
+        //Fill the array of PMTHits with the events which have happened
         HC = (PMTHitsCollection*)(HCE->GetHC(hitsCollID));
     }
 

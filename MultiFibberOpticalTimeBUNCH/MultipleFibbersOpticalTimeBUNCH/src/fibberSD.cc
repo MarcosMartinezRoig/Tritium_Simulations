@@ -43,7 +43,7 @@ fibberSD::fibberSD(const G4String& name, const G4String& hitsCollectionName)
  : G4VSensitiveDetector(name),
    fHitsCollection(NULL)
 {
-  collectionName.insert(hitsCollectionName);
+    collectionName.insert(hitsCollectionName);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -55,56 +55,52 @@ fibberSD::~fibberSD()
 
 void fibberSD::Initialize(G4HCofThisEvent* hce)
 {
-  // Create hits collection
+    // Create hits collection
+    fHitsCollection = new fibberHitsCollection(SensitiveDetectorName, collectionName[0]);
 
-  fHitsCollection = new fibberHitsCollection(SensitiveDetectorName, collectionName[0]); 
-
-  // Add this collection in hce
-
-  G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-  hce->AddHitsCollection( hcID, fHitsCollection ); 
+    // Add this collection in hce
+    G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+    hce->AddHitsCollection( hcID, fHitsCollection );
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool fibberSD::ProcessHits(G4Step* aStep, 
-                                     G4TouchableHistory*)
+G4bool fibberSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 {  
-  // energy deposit
-  G4double edep = aStep->GetTotalEnergyDeposit();
+    // energy deposit
+    G4double edep = aStep->GetTotalEnergyDeposit();
 
-  if (edep==0.) return false;
+    if (edep==0.) return false;
 
-  fibberHit* newHit = new fibberHit();
+    fibberHit* newHit = new fibberHit();
 
-  newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
-  newHit->SetFibberNb(aStep->GetPreStepPoint()->GetTouchableHandle()
-                                               ->GetCopyNumber());
-  newHit->SetEdep(edep);
-  newHit->SetPos (aStep->GetPostStepPoint()->GetPosition());
+    newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
+    newHit->SetFibberNb(aStep->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber());
+    newHit->SetEdep(edep);
+    newHit->SetPos (aStep->GetPostStepPoint()->GetPosition());
 
-//G4cout<<aStep->GetPreStepPoint()->GetPosition()<<G4endl;
+    //G4cout<<aStep->GetPreStepPoint()->GetPosition()<<G4endl;
 
 
-  fHitsCollection->insert( newHit );
+    fHitsCollection->insert( newHit );
 
-  //newHit->Print();
+    //newHit->Print();
 
-  return true;
+    return true;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void fibberSD::EndOfEvent(G4HCofThisEvent*)
 {
-  //if ( verboseLevel>1 ) { 
-     //G4int nofHits = fHitsCollection->entries();
-     //if(nofHits>0){
-     //G4cout << G4endl
+    //if ( verboseLevel>1 ) {
+        //G4int nofHits = fHitsCollection->entries();
+        //if(nofHits>0){
+        //G4cout << G4endl
             //<< "-------->Hits Collection: in this event they are " << nofHits 
             //<< " hits in the fibbers: " << G4endl;
-     //for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();}
-  //}
+        //for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();}
+    //}
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

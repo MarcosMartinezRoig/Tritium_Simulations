@@ -58,57 +58,56 @@ PMTHit::~PMTHit() {}
 PMTHit::PMTHit(const PMTHit& right)
   : G4VHit()
 {
-  fTrackID   = right.fTrackID;
-  fPMTNb = right.fPMTNb;
-  fPos       = right.fPos;
-  fEnergy = right.fEnergy;
-  //fDet=right.fDet;
+    fTrackID = right.fTrackID;
+    fPMTNb = right.fPMTNb;
+    fPos = right.fPos;
+    fEnergy = right.fEnergy;
+    //fDet=right.fDet;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 const PMTHit& PMTHit::operator=(const PMTHit& right)
 {
-  fTrackID   = right.fTrackID;
-  fPMTNb = right.fPMTNb;
-  fPos       = right.fPos;
-	//fDet=right.fDet;
-  return *this;
+    fTrackID   = right.fTrackID;
+    fPMTNb = right.fPMTNb;
+    fPos = right.fPos;
+    fEnergy = right.fEnergy;
+    //fDet=right.fDet;
+    return *this;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 G4int PMTHit::operator==(const PMTHit& right) const
 {
-  return ( this == &right ) ? 1 : 0;
+    return ( this == &right ) ? 1 : 0;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PMTHit::Draw()
 {
-  G4VVisManager* pVVisManager = G4VVisManager::GetConcreteInstance();
-  if(pVVisManager)
-  {
-    G4Circle circle(fPos);
-    circle.SetScreenSize(8.);
-    circle.SetFillStyle(G4Circle::filled);
-    G4Colour colour(1.,0.,0.);
-    G4VisAttributes attribs(colour);
-    circle.SetVisAttributes(attribs);
-    pVVisManager->Draw(circle);
-  }
+    G4VVisManager* pVVisManager = G4VVisManager::GetConcreteInstance();
+    if(pVVisManager)
+    {
+        G4Circle circle(fPos);
+        circle.SetScreenSize(8.);
+        circle.SetFillStyle(G4Circle::filled);
+        G4Colour colour(0.,0.,1.);
+        G4VisAttributes attribs(colour);
+        circle.SetVisAttributes(attribs);
+        pVVisManager->Draw(circle);
+    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void PMTHit::Print()
 {
-  G4cout
-     << "  trackID: " << fTrackID << " PMTNb: " << fPMTNb
-     << " Position: "
-     << std::setw(7) << G4BestUnit( fPos,"Length")
-     << G4endl;
+    G4cout << "  trackID: " << fTrackID << G4endl;
+    G4cout << "PMTNb: " << fPMTNb << G4endl;
+    G4cout << "Position: " << std::setw(7) << G4BestUnit( fPos,"Length") << G4endl;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

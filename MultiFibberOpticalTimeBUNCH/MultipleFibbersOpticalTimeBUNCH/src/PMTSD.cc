@@ -45,8 +45,8 @@ PMTSD::PMTSD(const G4String& name, const G4String& hitsCollectionName)
  : G4VSensitiveDetector(name),
    fHitsCollection(NULL)
 {
-  collectionName.insert("hitsCollectionPMTs");
-  //hcID=-1;
+    collectionName.insert("hitsCollectionPMTs");
+    //hcID=-1;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -58,69 +58,61 @@ PMTSD::~PMTSD()
 
 void PMTSD::Initialize(G4HCofThisEvent* hce)
 {
-  // Create hits collection
+    // Create hits collection
+    fHitsCollection = new PMTHitsCollection(SensitiveDetectorName, collectionName[0]);
 
-  fHitsCollection = new PMTHitsCollection(SensitiveDetectorName, collectionName[0]); 
+    // Add this collection in hce
 
-  // Add this collection in hce
-
-  G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-  hce->AddHitsCollection( hcID, fHitsCollection ); 
+    G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+    hce->AddHitsCollection( hcID, fHitsCollection );
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool PMTSD::ProcessHits(G4Step* aStep, 
-                                     G4TouchableHistory*)
+G4bool PMTSD::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 {
 	  
-if ( aStep->GetTrack()->GetDefinition()== G4OpticalPhoton::OpticalPhotonDefinition()) {
-	
-	//G4int detFlag=0;
-  PMTHit* newHit = new PMTHit();
+    if ( aStep->GetTrack()->GetDefinition()== G4OpticalPhoton::OpticalPhotonDefinition()) {
+        //G4int detFlag=0;
+        PMTHit* newHit = new PMTHit();
 
-  newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
-  newHit->SetPMTNb(aStep->GetPreStepPoint()->GetTouchableHandle()
-                                               ->GetCopyNumber());
-  newHit->SetPos (aStep->GetPostStepPoint()->GetPosition());
-  newHit->SetEnergy  (aStep->GetTrack()->GetTotalEnergy () );
+        newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
+        newHit->SetPMTNb(aStep->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber());
+        newHit->SetPos (aStep->GetPostStepPoint()->GetPosition());
+        newHit->SetEnergy  (aStep->GetTrack()->GetTotalEnergy () );
 
 
-//G4cout<<"PHOTON ENERG "<<aStep->GetTrack()->GetTotalEnergy ()<<G4endl;
-   //if ( aStep->GetTrack()->GetDefinition()== G4OpticalPhoton::OpticalPhotonDefinition()) {
+        //G4cout<<"PHOTON ENERG "<<aStep->GetTrack()->GetTotalEnergy ()<<G4endl;
+        //if ( aStep->GetTrack()->GetDefinition()== G4OpticalPhoton::OpticalPhotonDefinition()) {
   
-  //G4OpBoundaryProcessStatus theStatus = Undefined;
+        //G4OpBoundaryProcessStatus theStatus = Undefined;
 
-  //G4ProcessManager* OpManager = G4OpticalPhoton::OpticalPhoton()->GetProcessManager();
+        //G4ProcessManager* OpManager = G4OpticalPhoton::OpticalPhoton()->GetProcessManager();
 
-  //if (OpManager) {
-     //G4int MAXofPostStepLoops =
-              //OpManager->GetPostStepProcessVector()->entries();
-     //G4ProcessVector* fPostStepDoItVector = OpManager->GetPostStepProcessVector(typeDoIt);
+        //if (OpManager) {
+            //G4int MAXofPostStepLoops = OpManager->GetPostStepProcessVector()->entries();
+            //G4ProcessVector* fPostStepDoItVector = OpManager->GetPostStepProcessVector(typeDoIt);
 
-     //for ( G4int i=0; i<MAXofPostStepLoops; i++) {
-         //G4VProcess* fCurrentProcess = (*fPostStepDoItVector)[i];
-        //G4OpBoundaryProcess* fOpProcess = dynamic_cast<G4OpBoundaryProcess*>(fCurrentProcess);
-         //if (fOpProcess) { theStatus = fOpProcess->GetStatus(); break;}
-     //}
-  //}
+            //for ( G4int i=0; i<MAXofPostStepLoops; i++) {
+                //G4VProcess* fCurrentProcess = (*fPostStepDoItVector)[i];
+                //G4OpBoundaryProcess* fOpProcess = dynamic_cast<G4OpBoundaryProcess*>(fCurrentProcess);
+                 //if (fOpProcess) { theStatus = fOpProcess->GetStatus(); break;}
+            //}
+        //}
 
-//if (theStatus==Detection){
-	
-	//detFlag=1;
-	//}
-	
-	
-	
-	//newHit->SetDetection(detFlag);
+        //if (theStatus==Detection){
+        //detFlag=1;
+        //}
+
+        //newHit->SetDetection(detFlag);
   
-
-  fHitsCollection->insert( newHit );
+        fHitsCollection->insert(newHit);
   
-}
-  //newHit->Print();
+    }
 
-  return true;
+    //newHit->Print();
+
+    return true;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
