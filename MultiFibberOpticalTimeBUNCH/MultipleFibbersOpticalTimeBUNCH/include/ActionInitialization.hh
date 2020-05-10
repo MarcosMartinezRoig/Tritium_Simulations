@@ -29,32 +29,30 @@
 /// \brief Definition of the ActionInitialization class
 
 #ifndef ActionInitialization_h
-#define ActionInitialization_h 1
+#define  ActionInitialization_h 1
 
 #include "G4VUserActionInitialization.hh"
 #include "globals.hh"
 
 class DetectorConstruction;
 
-/// Action initialization class.
-///
-
-class ActionInitialization : public G4VUserActionInitialization
+class ActionInitialization: public G4VUserActionInitialization
 {
-  public:
-	G4int runNumber;
-    ActionInitialization(DetectorConstruction*, G4int, G4int,G4int);
-    virtual ~ActionInitialization();
+	public:
+		G4int runNumber;
+		G4int fAcquisitionTime;
+		G4int fSourceActivity;
+		
+		ActionInitialization(DetectorConstruction*, G4int, G4int, G4int);
+		virtual ~ActionInitialization();
 
-    virtual void BuildForMaster() const;
-    virtual void Build() const;
-	G4int fAcquisitionTime;
-	G4int fSourceActivity;
-	
-  private:
-    DetectorConstruction* fDetConstruction;
-  	//G4int RunNumber;
-  
+		virtual void BuildForMaster() const;
+		virtual void Build() const;
+		
+		
+
+	private:
+		DetectorConstruction* fDetConstruction;	
 };
 
 #endif

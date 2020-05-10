@@ -1,0 +1,7 @@
+# for PrimaryGeneratorGPS
+#
+/gps/ang/type iso
+/gps/ene/type Arb
+/gps/hist/file TRITIUMSpectrumNew.txt
+/gps/hist/inter Spline
+/gps/source/intensity 100

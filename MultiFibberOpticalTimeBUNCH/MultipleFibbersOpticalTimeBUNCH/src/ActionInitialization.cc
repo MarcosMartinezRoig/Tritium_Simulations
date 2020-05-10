@@ -38,15 +38,14 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-ActionInitialization::ActionInitialization
-                            (DetectorConstruction* detConstruction, G4int RunNumber, G4int acquisitionTime, G4int sourceAct)
+ActionInitialization::ActionInitialization(DetectorConstruction* detConstruction, G4int RunNumber,
+                                           G4int acquisitionTime, G4int sourceAct)
  : G4VUserActionInitialization(),
    fDetConstruction(detConstruction)
 {
-        runNumber=RunNumber;
-	fAcquisitionTime=acquisitionTime;
-	fSourceActivity=sourceAct;
-
+    runNumber=RunNumber;
+    fAcquisitionTime=acquisitionTime;
+    fSourceActivity=sourceAct;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -58,22 +57,19 @@ ActionInitialization::~ActionInitialization()
 
 void ActionInitialization::BuildForMaster() const
 {
-  SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
+    SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void ActionInitialization::Build() const
-{
-	
-  SetUserAction(new PrimaryGeneratorGPS(fDetConstruction,fAcquisitionTime,runNumber));
-  SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
-  auto eventAction = new EventAction(runNumber);
-  SetUserAction(eventAction);
-  SetUserAction(new SteppingAction(fDetConstruction,eventAction));
-  SetUserAction(new StackingAction());
- 
-  
+{	
+    SetUserAction(new PrimaryGeneratorGPS(fDetConstruction,fAcquisitionTime,runNumber));
+    SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
+    auto eventAction = new EventAction(runNumber);
+    SetUserAction(eventAction);
+    SetUserAction(new SteppingAction(fDetConstruction,eventAction));
+    SetUserAction(new StackingAction());
 }  
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
