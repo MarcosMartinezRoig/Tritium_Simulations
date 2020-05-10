@@ -70,7 +70,7 @@ class EventAction : public G4UserEventAction
     G4double  fEnergyFibber;
     G4double  fTrackLWater; 
     G4double  fTrackLFibber;
-    G4int fSourceNumber;
+    //G4int fSourceNumber;
     G4int runNumber;
     G4int hitsCollID;
      G4int pmtNumber;

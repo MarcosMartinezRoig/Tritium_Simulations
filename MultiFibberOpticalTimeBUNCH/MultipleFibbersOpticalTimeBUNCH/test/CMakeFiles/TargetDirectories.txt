@@ -1,8 +1,0 @@
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/install/strip.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/install/local.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/Tutorial.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/edit_cache.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/MultipleFibbers.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/rebuild_cache.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/list_install_components.dir
-/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH/MultipleFibbersOpticalTimeBUNCH/test/CMakeFiles/install.dir
