@@ -66,7 +66,7 @@ void ChooseRunType(int Nevents, int activity_BqL, int acquisitionTime, DetectorC
         //Calculate the sources volume
         G4double srcIntRadius=det->GetFibberRadius();
         G4double srcExtRadius=det->GetSourceRadius();
-        G4double srcLength=det->GetSourceLength();
+        G4double srcLength=2*(det->GetSourceHalfLength());
         G4double nSources=det->GetNFibbers();
 			
         G4double sourcesVolume=nSources*pi*srcLength*(pow(srcExtRadius,2)-pow(srcIntRadius,2))*1e-6;//mm3 to L

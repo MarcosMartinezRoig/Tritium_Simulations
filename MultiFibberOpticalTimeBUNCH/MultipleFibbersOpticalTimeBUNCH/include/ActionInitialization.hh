@@ -53,7 +53,7 @@ class ActionInitialization : public G4VUserActionInitialization
 	
   private:
     DetectorConstruction* fDetConstruction;
-  	G4int RunNumber;
+  	//G4int RunNumber;
   
 };
 

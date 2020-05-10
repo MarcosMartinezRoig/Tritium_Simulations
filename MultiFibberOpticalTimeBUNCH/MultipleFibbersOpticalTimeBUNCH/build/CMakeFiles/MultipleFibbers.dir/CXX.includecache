@@ -169,10 +169,18 @@ ActionInitialization.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/ActionInitialization.hh
 G4EmStandardPhysics.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4EmStandardPhysics.hh
-G4UImanager.hh
-/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4UImanager.hh
 PhysicsList.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/PhysicsList.hh
+G4MTRunManager.hh
+/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4MTRunManager.hh
+G4RunManager.hh
+/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4RunManager.hh
+G4UImanager.hh
+/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4UImanager.hh
+G4VisExecutive.hh
+/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4VisExecutive.hh
+G4UIExecutive.hh
+/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4UIExecutive.hh
 Randomize.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/Randomize.hh
 time.h
@@ -183,14 +191,6 @@ G4Poisson.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4Poisson.hh
 Analysis.hh
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/Analysis.hh
-G4MTRunManager.hh
-/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4MTRunManager.hh
-G4RunManager.hh
-/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4RunManager.hh
-G4VisExecutive.hh
-/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4VisExecutive.hh
-G4UIExecutive.hh
-/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/G4UIExecutive.hh
 
 /home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/src/ActionInitialization.cc
 ActionInitialization.hh

@@ -202,7 +202,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     rotm.rotateX(0*deg);
     rotm.rotateY(0*deg);
     rotm.rotateZ(0*deg);
-    G4Transform3D transform ;
+    //G4Transform3D transform ;
     G4Transform3D transformEndCap ;
 
     //Fibbers
@@ -214,7 +214,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4double ring_R;
     G4ThreeVector uz;
     G4ThreeVector positionDummy;
-    G4ThreeVector position;
+    //G4ThreeVector position;
     G4ThreeVector positionEndCap;
 	
     G4int fibberCounter=0;
@@ -229,9 +229,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
                 phi = iFibber*dPhi[r];
                 uz = G4ThreeVector(std::cos(phi),  std::sin(phi),0);
                 positionDummy = (ringRadius[r])*uz;
-                position = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),-halfLength);
+                //position = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),-halfLength);
                 positionEndCap = G4ThreeVector(positionDummy.getX(),positionDummy.getY(),0);
-                transform = G4Transform3D(rotm,position);
+                //transform = G4Transform3D(rotm,position);
             }
 
             transformEndCap = G4Transform3D(rotm,positionEndCap);
@@ -259,8 +259,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 		
     }
 	
-    positionEndCap=G4ThreeVector(0,0,-halfLEndCap);
-    transformEndCap = G4Transform3D(rotm,positionEndCap);
+    //positionEndCap=G4ThreeVector(0,0,-halfLEndCap);
+    //transformEndCap = G4Transform3D(rotm,positionEndCap);
     //endCapSub=new G4SubtractionSolid("sub",endCapSub,supportRemoveSolid,transformEndCap);
 
 
@@ -586,7 +586,7 @@ G4double DetectorConstruction::GetSourceRadius()
 }	
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-G4double DetectorConstruction::GetSourceLength()
+G4double DetectorConstruction::GetSourceHalfLength()
 {
     return halfLength;
 }	

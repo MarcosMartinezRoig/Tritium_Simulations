@@ -63,7 +63,7 @@ public:
     G4VPhysicalVolume* GetFibbersPV(G4int);
     G4int GetNFibbers();
     G4double GetSourceRadius();
-    G4double GetSourceLength();
+    G4double GetSourceHalfLength();
      G4double GetFibberLength();
     G4double GetFibberRadius();
     G4Material* FindMaterial(G4String);

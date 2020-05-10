@@ -67,6 +67,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/vis.mac"
     "/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/RunSimulationLocal.py"
     "/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/Analise.C"
+    "/home/marcosmr/Escritorio/Tritium_simulations/MultipleFibbersOpticalTimeBUNCH/gui.mac"
     )
 endif()
 

@@ -17,6 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
+  "../gui.mac"
   "../init.mac"
   "../init_vis.mac"
   "../run1.mac"
@@ -166,6 +167,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "vis.mac"
   "RunSimulationLocal.py"
   "Analise.C"
+  "gui.mac"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

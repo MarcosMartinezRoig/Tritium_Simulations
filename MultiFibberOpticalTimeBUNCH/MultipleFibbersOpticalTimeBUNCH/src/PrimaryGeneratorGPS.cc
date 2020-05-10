@@ -85,7 +85,7 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
    G4double sourceRadius=fDetConstruction->GetSourceRadius();
    posDist->SetRadius(sourceRadius);
    
-   G4double sourceHalfLength=fDetConstruction->GetSourceLength();
+   G4double sourceHalfLength=fDetConstruction->GetSourceHalfLength();
    posDist->SetHalfZ(sourceHalfLength);
    
    

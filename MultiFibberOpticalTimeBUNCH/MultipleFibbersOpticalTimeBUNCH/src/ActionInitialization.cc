@@ -43,11 +43,11 @@ ActionInitialization::ActionInitialization
  : G4VUserActionInitialization(),
    fDetConstruction(detConstruction)
 {
-	runNumber=RunNumber;
+        runNumber=RunNumber;
 	fAcquisitionTime=acquisitionTime;
 	fSourceActivity=sourceAct;
 
-	}
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -58,7 +58,7 @@ ActionInitialization::~ActionInitialization()
 
 void ActionInitialization::BuildForMaster() const
 {
-  SetUserAction(new RunAction(RunNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
+  SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
