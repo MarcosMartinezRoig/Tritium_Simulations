@@ -47,42 +47,40 @@
 
 class EventAction : public G4UserEventAction
 {
-  public:
-    EventAction(G4int);
-    virtual ~EventAction();
+	public:
+    		EventAction(G4int);
+		virtual ~EventAction();
 
-    virtual void  BeginOfEventAction(const G4Event* event);
-    virtual void    EndOfEventAction(const G4Event* event);
+		virtual void  BeginOfEventAction(const G4Event* event);
+		virtual void    EndOfEventAction(const G4Event* event);
 	
-    void AddWater(G4double de, G4double dl);
-    void AddFibbers(G4double de, G4double dl);
-	G4int RunNumber;
-	void FillTreeOptical(G4AnalysisManager*); 
-	void FillTreeTritium(G4AnalysisManager*);
+		void AddWater(G4double de, G4double dl);
+		void AddFibbers(G4double de, G4double dl);
+		
+		G4int RunNumber;
+		
+		void FillTreeOptical(G4AnalysisManager*); 
+		void FillTreeTritium(G4AnalysisManager*);
 
-
-    
-  private:
-  
-
-	G4int     fEventID;
-    G4double  fEnergyWater;
-    G4double  fEnergyFibber;
-    G4double  fTrackLWater; 
-    G4double  fTrackLFibber;
-    //G4int fSourceNumber;
-    G4int runNumber;
-    G4int hitsCollID;
-     G4int pmtNumber;
-      G4ThreeVector position;
+  	private:
+		G4int     fEventID;
+		G4double  fEnergyWater;
+		G4double  fEnergyFibber;
+    		G4double  fTrackLWater; 
+    		G4double  fTrackLFibber;
+    		//G4int fSourceNumber;
+    		//G4int runNumber;
+    		G4int hitsCollID;
+     		G4int pmtNumber;
+      		G4ThreeVector position;
 		G4int trackID;
-//G4int fDetection;
-G4int nHitPMT0;
-G4int nHitPMT1;
-//G4int nDetectedPMT0;
-//G4int nDetectedPMT1;
-G4int fCoincidenceFlag;
-G4double photonEnergy;    
+		//G4int fDetection;
+		G4int nHitPMT0;
+		G4int nHitPMT1;
+		//G4int nDetectedPMT0;
+		//G4int nDetectedPMT1;
+		G4int fCoincidenceFlag;
+		G4double photonEnergy;    
 };
 
 // inline functions
