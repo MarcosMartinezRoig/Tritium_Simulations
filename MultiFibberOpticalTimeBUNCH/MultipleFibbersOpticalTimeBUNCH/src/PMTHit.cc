@@ -42,11 +42,11 @@ G4ThreadLocal G4Allocator<PMTHit>* PMTHitAllocator=0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 PMTHit::PMTHit()
- : G4VHit(),
-   fTrackID(-1),
-   fPMTNb(-1),
-   fEnergy (-1),
-   fPos(G4ThreeVector())
+ : G4VHit()
+   //fTrackID(-1),
+   //fPMTNb(-1),
+   //fEnergy (-1),
+   //fPos(G4ThreeVector())
 {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

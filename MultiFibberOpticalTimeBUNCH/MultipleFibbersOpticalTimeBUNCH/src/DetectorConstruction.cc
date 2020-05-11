@@ -71,9 +71,7 @@
 
 DetectorConstruction::DetectorConstruction()
 : G4VUserDetectorConstruction(), 
-  fVisAttributes(),
-  fMaterials(NULL),
-  water(NULL), PMMA(NULL),teflon(NULL),polystyrene(NULL),Silicone(NULL),glass(NULL), bialkaliPhoto(NULL)
+  fVisAttributes()
 {}
  
 
@@ -160,10 +158,10 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     
     
     
-    G4int nRings=int(rIntTeflon/2*rSource);//number of circunferences 
-    nRings=nRings+1;//para dar proximo de 350 fibras. assim obtemos 341
+    const G4int nRings=int(rIntTeflon/2*rSource);//number of circunferences
+    //nRings=nRings+1;//para dar proximo de 350 fibras. assim obtemos 341
     //G4int nRings=1;
-    
+
    
     G4double ringRadius[nRings];
     G4int nFibbers[nRings];
