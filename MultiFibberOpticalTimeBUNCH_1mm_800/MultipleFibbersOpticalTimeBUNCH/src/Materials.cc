@@ -375,7 +375,7 @@ void Materials::CreateMaterials()
     2.90*eV, 2.93*eV, 2.96*eV, 2.99*eV, 3.02*eV,
     3.05*eV, 3.08*eV, 3.11*eV, 3.14*eV, 3.17*eV,
     3.20*eV, 3.23*eV, 3.26*eV, 3.29*eV, 3.32*eV,
-    3.35*eV, 3.38*eV, 3.41*eV, 3.44*eV, 3.47*eV};
+    3.35*eV, 3.38*eV, 3.41*eV, 3.44*eV, 3.47*eV}; //It is used for the silicone
 
 
 
@@ -440,27 +440,30 @@ void Materials::CreateMaterials()
     //From Saint gobain brochure
 
     G4double photoEmissionEnergy[]=
-    {2.26*eV, 2.29*eV, 2.31*eV, 2.34*eV, 2.36*eV, 2.38*eV, 2.40*eV, 2.42*eV, 2.45*eV, 2.47*eV,
-     2.50*eV, 2.53*eV, 2.55*eV, 2.58*eV, 2.59*eV, 2.60*eV, 2.61*eV, 2.62*eV, 2.62*eV, 2.63*eV,
-     2.64*eV, 2.65*eV, 2.66*eV, 2.66*eV, 2.67*eV, 2.68*eV, 2.69*eV, 2.70*eV, 2.71*eV, 2.72*eV,
-     2.73*eV, 2.74*eV, 2.76*eV, 2.77*eV, 2.78*eV, 2.79*eV, 2.80*eV, 2.80*eV, 2.81*eV, 2.82*eV,
-     2.82*eV, 2.83*eV, 2.83*eV, 2.84*eV, 2.84*eV, 2.85*eV, 2.86*eV, 2.87*eV, 2.88*eV, 2.89*eV,
-     2.89*eV, 2.90*eV, 2.90*eV, 2.91*eV, 2.92*eV, 2.94*eV, 2.94*eV, 2.95*eV, 2.96*eV, 2.96*eV,
-     2.96*eV, 2.97*eV, 2.97*eV, 2.98*eV, 2.98*eV, 2.98*eV, 2.99*eV, 2.99*eV, 2.99*eV, 3.00*eV,
-     3.00*eV, 3.00*eV, 3.01*eV, 3.01*eV, 3.01*eV, 3.02*eV, 3.04*eV, 3.05*eV, 3.06*eV, 3.07*eV,
-     3.09*eV};
-
-
+   {2.17*eV, 2.19*eV, 2.22*eV, 2.24*eV, 2.26*eV,
+    2.29*eV, 2.31*eV, 2.34*eV, 2.35*eV, 2.37*eV,
+    2.38*eV, 2.40*eV, 2.42*eV, 2.43*eV, 2.44*eV,
+    2.46*eV, 2.48*eV, 2.49*eV, 2.51*eV, 2.52*eV,
+    2.54*eV, 2.56*eV, 2.58*eV, 2.59*eV, 2.61*eV,
+    2.63*eV, 2.64*eV, 2.66*eV, 2.67*eV, 2.69*eV,
+    2.71*eV, 2.72*eV, 2.73*eV, 2.75*eV, 2.78*eV,
+    2.79*eV, 2.81*eV, 2.83*eV, 2.85*eV, 2.86*eV,
+    2.89*eV, 2.92*eV, 2.93*eV, 2.95*eV, 2.96*eV,
+    2.97*eV, 2.98*eV, 2.99*eV, 3.01*eV, 3.02*eV,
+    3.03*eV, 3.04*eV, 3.05*eV, 3.06*eV, 3.07*eV,
+    3.08*eV, 3.09*eV, 3.10*eV, 3.13*eV, 3.16*eV,
+    3.19*eV};
 
     G4double scintilFast[] =
-    {0.00, 0.00, 0.00, 0.01, 0.01, 0.03, 0.04, 0.05, 0.06, 0.09,
-     0.11, 0.13, 0.16, 0.18, 0.21, 0.23, 0.26, 0.28, 0.30, 0.32,
-     0.34, 0.36, 0.38, 0.41, 0.44, 0.47, 0.50, 0.52, 0.55, 0.57,
-     0.59, 0.61, 0.65, 0.67, 0.69, 0.71, 0.73, 0.76, 0.79, 0.82,
-     0.86, 0.88, 0.92, 0.94, 0.97, 0.98, 1.00, 0.98, 0.96, 0.94,
-     0.91, 0.89, 0.86, 0.84, 0.81, 0.76, 0.72, 0.68, 0.65, 0.61,
-     0.58, 0.54, 0.50, 0.47, 0.44, 0.44, 0.37, 0.34, 0.32, 0.28,
-     0.26, 0.24, 0.21, 0.18, 0.16, 0.14, 0.10, 0.05, 0.03, 0.01,0.00};
+    {0.00, 0.01, 0.03, 0.04, 0.05, 0.07, 0.08,
+    0.09, 0.11, 0.12, 0.14, 0.15, 0.17, 0.19,
+    0.21, 0.23, 0.25, 0.26, 0.28, 0.30, 0.33,
+    0.36, 0.40, 0.42, 0.44, 0.49, 0.52, 0.57,
+    0.63, 0.68, 0.73, 0.75, 0.79, 0.83, 0.88,
+    0.91, 0.95, 0.98, 0.99, 0.98, 0.94, 0.89,
+    0.85, 0.80, 0.73, 0.68, 0.62, 0.56, 0.50,
+    0.44, 0.38, 0.33, 0.27, 0.23, 0.20, 0.16,
+    0.13, 0.10, 0.06, 0.04, 0.01};
 
     assert(sizeof(scintilFast) == sizeof(photoEmissionEnergy));
   
@@ -475,7 +478,7 @@ void Materials::CreateMaterials()
 
     mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD",8./keV);//checked
     mptPolystyrene->AddConstProperty("RESOLUTIONSCALE",0.0);//TO MEASURE
-    mptPolystyrene->AddConstProperty("FASTTIMECONSTANT", 2.7*ns);	//checked
+    mptPolystyrene->AddConstProperty("FASTTIMECONSTANT", 3.2*ns);	//checked
  
     fPolystyrene->SetMaterialPropertiesTable(mptPolystyrene);
 

@@ -154,6 +154,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   
     rInt=0.5*mm;//1mm fibbers
     rSource=rInt+0.005*mm;
+    //rSource=rInt+0.03215*mm;
   
      
     //halfLength=halfTeflonLength-2*halfLEndCap;
@@ -195,6 +196,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 			
         dPhi[r]=twopi/nFibbers[r];
         G4cout<<"\nRing "<<r<<", radius "<<ringRadius[r]<<" mm, nFibbers "<<nFibbers[r]<<G4endl;
+        G4cout << "Number: " << twopi*ringRadius[r]/(2*(rSource)) << G4endl;
 				
         nTotalFibbers=nTotalFibbers+nFibbers[r];
 		
