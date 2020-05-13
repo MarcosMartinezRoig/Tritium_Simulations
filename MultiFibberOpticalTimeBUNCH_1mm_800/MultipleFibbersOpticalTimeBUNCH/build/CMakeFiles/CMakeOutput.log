@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/marcosmr/Escritorio/Mult
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8842d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8842d.dir/build.make CMakeFiles/cmTC_8842d.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_57264/fast"
+/usr/bin/make -f CMakeFiles/cmTC_57264.dir/build.make CMakeFiles/cmTC_57264.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8842d.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_8842d.dir/testCCompiler.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_8842d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8842d.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_8842d.dir/testCCompiler.c.o  -o cmTC_8842d 
+Building C object CMakeFiles/cmTC_57264.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_57264.dir/testCCompiler.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_57264
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57264.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_57264.dir/testCCompiler.c.o  -o cmTC_57264 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bcff2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bcff2.dir/build.make CMakeFiles/cmTC_bcff2.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c6aea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c6aea.dir/build.make CMakeFiles/cmTC_c6aea.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_bcff2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcff2.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o  -o cmTC_bcff2 
+Building C object CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_c6aea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6aea.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o  -o cmTC_c6aea 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -61,9 +61,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bcff2' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc58UsFV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bcff2 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bcff2' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c6aea' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSvoRw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c6aea /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c6aea' '-mtune=generic' '-march=x86-64'
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -71,14 +71,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bcff2/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bcff2.dir/build.make CMakeFiles/cmTC_bcff2.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c6aea/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c6aea.dir/build.make CMakeFiles/cmTC_c6aea.dir/build]
   ignore line: [make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_bcff2]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcff2.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o  -o cmTC_bcff2 ]
+  ignore line: [Building C object CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_c6aea]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6aea.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o  -o cmTC_c6aea ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -90,13 +90,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_bcff2' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc58UsFV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bcff2 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c6aea' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccrSvoRw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_c6aea /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc58UsFV.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccrSvoRw.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -115,7 +115,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_bcff2] ==> ignore
+    arg [cmTC_c6aea] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -127,7 +127,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_bcff2.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_c6aea.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -159,14 +159,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_aa81b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_aa81b.dir/build.make CMakeFiles/cmTC_aa81b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f154e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f154e.dir/build.make CMakeFiles/cmTC_f154e.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_aa81b.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_aa81b.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_aa81b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa81b.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_aa81b.dir/feature_tests.c.o  -o cmTC_aa81b 
+Building C object CMakeFiles/cmTC_f154e.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_f154e.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f154e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f154e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f154e.dir/feature_tests.c.o  -o cmTC_f154e 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -179,14 +179,14 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_07c85/fast"
-/usr/bin/make -f CMakeFiles/cmTC_07c85.dir/build.make CMakeFiles/cmTC_07c85.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_4601c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4601c.dir/build.make CMakeFiles/cmTC_4601c.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_07c85.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_07c85.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_07c85
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07c85.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_07c85.dir/feature_tests.c.o  -o cmTC_07c85 
+Building C object CMakeFiles/cmTC_4601c.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_4601c.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4601c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4601c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_4601c.dir/feature_tests.c.o  -o cmTC_4601c 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -199,14 +199,14 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8e431/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8e431.dir/build.make CMakeFiles/cmTC_8e431.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_9aa65/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9aa65.dir/build.make CMakeFiles/cmTC_9aa65.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8e431.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_8e431.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_8e431
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8e431.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_8e431.dir/feature_tests.c.o  -o cmTC_8e431 
+Building C object CMakeFiles/cmTC_9aa65.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_9aa65.dir/feature_tests.c.o   -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_9aa65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9aa65.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9aa65.dir/feature_tests.c.o  -o cmTC_9aa65 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -217,28 +217,28 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f2ef3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f2ef3.dir/build.make CMakeFiles/cmTC_f2ef3.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_be2f7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_be2f7.dir/build.make CMakeFiles/cmTC_be2f7.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_f2ef3.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_f2ef3.dir/testCXXCompiler.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_f2ef3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2ef3.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_f2ef3.dir/testCXXCompiler.cxx.o  -o cmTC_f2ef3 
+Building CXX object CMakeFiles/cmTC_be2f7.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_be2f7.dir/testCXXCompiler.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_be2f7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be2f7.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_be2f7.dir/testCXXCompiler.cxx.o  -o cmTC_be2f7 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6f5c6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6f5c6.dir/build.make CMakeFiles/cmTC_6f5c6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_96a5b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_96a5b.dir/build.make CMakeFiles/cmTC_96a5b.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_6f5c6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f5c6.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f5c6 
+Building CXX object CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_96a5b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96a5b.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_96a5b 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -250,9 +250,9 @@ Thread model: posix
 gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f5c6' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc25DdkB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6f5c6 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f5c6' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_96a5b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPotB2O.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_96a5b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_96a5b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -260,14 +260,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_6f5c6/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_6f5c6.dir/build.make CMakeFiles/cmTC_6f5c6.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_96a5b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_96a5b.dir/build.make CMakeFiles/cmTC_96a5b.dir/build]
   ignore line: [make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_6f5c6]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f5c6.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_6f5c6 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_96a5b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96a5b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_96a5b ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -279,13 +279,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6f5c6' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc25DdkB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6f5c6 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_96a5b' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPotB2O.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_96a5b /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc25DdkB.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccPotB2O.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -304,7 +304,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_6f5c6] ==> ignore
+    arg [cmTC_96a5b] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -316,7 +316,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_6f5c6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_96a5b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -344,14 +344,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_baa9e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_baa9e.dir/build.make CMakeFiles/cmTC_baa9e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c0f6e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c0f6e.dir/build.make CMakeFiles/cmTC_c0f6e.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_baa9e.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_baa9e.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_baa9e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_baa9e.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_baa9e.dir/feature_tests.cxx.o  -o cmTC_baa9e 
+Building CXX object CMakeFiles/cmTC_c0f6e.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_c0f6e.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c0f6e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c0f6e.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c0f6e.dir/feature_tests.cxx.o  -o cmTC_c0f6e 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -417,14 +417,14 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e3618/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e3618.dir/build.make CMakeFiles/cmTC_e3618.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_196b4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_196b4.dir/build.make CMakeFiles/cmTC_196b4.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e3618.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_e3618.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e3618
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3618.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_e3618.dir/feature_tests.cxx.o  -o cmTC_e3618 
+Building CXX object CMakeFiles/cmTC_196b4.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_196b4.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_196b4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_196b4.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_196b4.dir/feature_tests.cxx.o  -o cmTC_196b4 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -490,14 +490,14 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_2c575/fast"
-/usr/bin/make -f CMakeFiles/cmTC_2c575.dir/build.make CMakeFiles/cmTC_2c575.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_99696/fast"
+/usr/bin/make -f CMakeFiles/cmTC_99696.dir/build.make CMakeFiles/cmTC_99696.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_2c575.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_2c575.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_2c575
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c575.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_2c575.dir/feature_tests.cxx.o  -o cmTC_2c575 
+Building CXX object CMakeFiles/cmTC_99696.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_99696.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_99696
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99696.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_99696.dir/feature_tests.cxx.o  -o cmTC_99696 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -563,14 +563,14 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3f749/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3f749.dir/build.make CMakeFiles/cmTC_3f749.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c0256/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c0256.dir/build.make CMakeFiles/cmTC_c0256.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3f749.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_3f749.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3f749
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f749.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_3f749.dir/feature_tests.cxx.o  -o cmTC_3f749 
+Building CXX object CMakeFiles/cmTC_c0256.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_c0256.dir/feature_tests.cxx.o -c /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c0256
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c0256.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c0256.dir/feature_tests.cxx.o  -o cmTC_c0256 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
@@ -634,84 +634,84 @@ make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTim
 Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_cc0bb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_cc0bb.dir/build.make CMakeFiles/cmTC_cc0bb.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_49dd8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_49dd8.dir/build.make CMakeFiles/cmTC_49dd8.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_cc0bb.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_cc0bb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_cc0bb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc0bb.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_cc0bb.dir/CheckFunctionExists.c.o  -o cmTC_cc0bb /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+Building C object CMakeFiles/cmTC_49dd8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_49dd8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_49dd8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49dd8.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_49dd8.dir/CheckFunctionExists.c.o  -o cmTC_49dd8 /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function gethostbyname exists passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9b18c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9b18c.dir/build.make CMakeFiles/cmTC_9b18c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_e582d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e582d.dir/build.make CMakeFiles/cmTC_e582d.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9b18c.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_9b18c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_9b18c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b18c.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_9b18c.dir/CheckFunctionExists.c.o  -o cmTC_9b18c 
+Building C object CMakeFiles/cmTC_e582d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_e582d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e582d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e582d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_e582d.dir/CheckFunctionExists.c.o  -o cmTC_e582d 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function connect exists passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_29d9e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_29d9e.dir/build.make CMakeFiles/cmTC_29d9e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_6840d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6840d.dir/build.make CMakeFiles/cmTC_6840d.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_29d9e.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_29d9e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_29d9e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29d9e.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_29d9e.dir/CheckFunctionExists.c.o  -o cmTC_29d9e 
+Building C object CMakeFiles/cmTC_6840d.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_6840d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6840d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6840d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_6840d.dir/CheckFunctionExists.c.o  -o cmTC_6840d 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function remove exists passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ae4ed/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ae4ed.dir/build.make CMakeFiles/cmTC_ae4ed.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ca36b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ca36b.dir/build.make CMakeFiles/cmTC_ca36b.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ae4ed.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_ae4ed.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_ae4ed
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae4ed.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_ae4ed.dir/CheckFunctionExists.c.o  -o cmTC_ae4ed 
+Building C object CMakeFiles/cmTC_ca36b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_ca36b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ca36b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca36b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_ca36b.dir/CheckFunctionExists.c.o  -o cmTC_ca36b 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function shmat exists passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8fa26/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8fa26.dir/build.make CMakeFiles/cmTC_8fa26.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_fecc7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fecc7.dir/build.make CMakeFiles/cmTC_fecc7.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8fa26.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_8fa26.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_8fa26
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8fa26.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_8fa26.dir/CheckFunctionExists.c.o  -o cmTC_8fa26 
+Building C object CMakeFiles/cmTC_fecc7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_fecc7.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fecc7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fecc7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_fecc7.dir/CheckFunctionExists.c.o  -o cmTC_fecc7 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
 Change Dir: /home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_98252/fast"
-/usr/bin/make -f CMakeFiles/cmTC_98252.dir/build.make CMakeFiles/cmTC_98252.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_253a7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_253a7.dir/build.make CMakeFiles/cmTC_253a7.dir/build
 make[1]: se entra en el directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_98252.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_98252.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_98252
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98252.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_98252.dir/CheckFunctionExists.c.o  -o cmTC_98252 -lICE 
+Building C object CMakeFiles/cmTC_253a7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_253a7.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_253a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_253a7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_253a7.dir/CheckFunctionExists.c.o  -o cmTC_253a7 -lICE 
 make[1]: se sale del directorio '/home/marcosmr/Escritorio/MultiFibberOpticalTimeBUNCH_1mm_800/MultipleFibbersOpticalTimeBUNCH/build/CMakeFiles/CMakeTmp'
 
 
