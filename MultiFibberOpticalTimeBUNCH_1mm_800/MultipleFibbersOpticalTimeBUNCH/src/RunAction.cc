@@ -84,6 +84,7 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
     analysisManager->CreateNtupleIColumn("nHitPMT1");
     analysisManager->CreateNtupleIColumn("nHitTotal");
     analysisManager->CreateNtupleIColumn("Coincidence");
+    analysisManager->CreateNtupleIColumn("FibberOutPMTs");
     analysisManager->FinishNtuple();
     
     //Photon Hits
@@ -110,6 +111,19 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
     analysisManager->CreateNtupleDColumn("fibberDiameter");
     analysisManager->CreateNtupleIColumn("NEventsGenerated");
     analysisManager->FinishNtuple();
+
+    //nTuppleID=3
+    analysisManager->CreateNtuple("TritiumSource", "TritiumSource");
+    analysisManager->CreateNtupleDColumn("SourceEnergy");
+    analysisManager->CreateNtupleDColumn("SourcePosX");
+    analysisManager->CreateNtupleDColumn("SourcePosY");
+    analysisManager->CreateNtupleDColumn("SourcePosZ");
+    analysisManager->CreateNtupleDColumn("SourceT0_s");
+    analysisManager->CreateNtupleIColumn("SrcFibberPair");
+    analysisManager->CreateNtupleDColumn("distToFibberSurf");
+    analysisManager->CreateNtupleIColumn("FibberOut");
+    analysisManager->FinishNtuple();  
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

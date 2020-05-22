@@ -92,7 +92,7 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
 
     G4int fibberNumber=std::abs(G4UniformRand()*(nFibbers));
    
-    G4cout<<"fibberNumber "<<fibberNumber<<G4endl;
+    G4cout<<"fibberNumber: "<<fibberNumber<<G4endl;
    
    
     randFibberPV=fDetConstruction->GetFibbersPV(fibberNumber);
@@ -138,6 +138,14 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
     ////////////////// End Distance from vertex to fibber surface
   
     //G4cout<<"vertex "<<vertexPositionRadial<<" fibber " <<fibberPositionRadial<< " distance "<< distance <<" R "<<radialDistance<< " distanceSurface "<<distanceToSurface<<G4endl;
+
+    G4int fibberOut=-2;
+
+    if(fSourcePosX>12.73 || fSourcePosX<(-12.73) || fSourcePosY>12.73 || fSourcePosY<(-12.73))
+    {fibberOut=1;}
+    else{fibberOut=0;}
+
+    G4cout << "FibberOut_Flag: " << fibberOut << G4endl;
   
 
     // get analysis manager
@@ -148,8 +156,19 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
     analysisManager->FillNtupleDColumn(0,4, fSourcePosY);
     analysisManager->FillNtupleDColumn(0,5, fSourcePosZ);
     analysisManager->FillNtupleDColumn(0,6, fSourceT0);
-    analysisManager->FillNtupleIColumn(0,7, fibberNumber);
     analysisManager->FillNtupleDColumn(0,8, distanceToSurface);
+    analysisManager->FillNtupleDColumn(0,8, distanceToSurface);
+    analysisManager->FillNtupleIColumn(0,18, fibberOut);
+
+    analysisManager->FillNtupleDColumn(3,0, fParticleEnergy);
+    analysisManager->FillNtupleDColumn(3,1, fSourcePosX);
+    analysisManager->FillNtupleDColumn(3,2, fSourcePosY);
+    analysisManager->FillNtupleDColumn(3,3, fSourcePosZ);
+    analysisManager->FillNtupleDColumn(3,4, fSourceT0);
+    analysisManager->FillNtupleIColumn(3,5, fibberNumber);
+    analysisManager->FillNtupleDColumn(3,6, distanceToSurface);
+    analysisManager->FillNtupleIColumn(3,7, fibberOut);
+    analysisManager->AddNtupleRow(3);
 }
 
 G4double PrimaryGeneratorGPS::GenerateTime(G4int time,G4int RunNumber){

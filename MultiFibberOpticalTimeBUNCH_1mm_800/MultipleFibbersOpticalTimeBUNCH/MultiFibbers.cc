@@ -102,6 +102,8 @@ int main(int argc,char** argv)
         G4cout<<"Ex: ./MultipleFibbers (string)run.mac (int)runNumber (int)Nevents "<<G4endl;
         G4cout<<" OR "<<G4endl;
         G4cout<<"Ex: ./MultipleFibbers (string)run.mac (int)runNumber 0 (int)AcquisitionTime_s (int)Activity_Bq/L (int)RandomSeed"<<G4endl;
+        G4cout << G4endl;
+        G4cout << "The time will start to count from the run 0"<< G4endl;
         G4cout<<" "<<G4endl;
 		
         exit(0);

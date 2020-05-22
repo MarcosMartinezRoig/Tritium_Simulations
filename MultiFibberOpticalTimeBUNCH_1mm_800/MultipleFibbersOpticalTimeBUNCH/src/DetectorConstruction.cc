@@ -160,7 +160,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     //halfLength=halfTeflonLength-2*halfLEndCap;
     halfLength=fibberHalfLength;
     
-
+    //const G4int nRings=1; //-> For 1 fiber only
     const G4int nRings=int(rIntTeflon/(2*rSource));//number of circunferences
 
     G4cout << G4endl;

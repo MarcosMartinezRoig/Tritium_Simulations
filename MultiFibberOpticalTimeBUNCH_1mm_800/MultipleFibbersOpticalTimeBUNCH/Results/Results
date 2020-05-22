@@ -1,0 +1,9 @@
+In this folder there are several results:
+- build_10.25 simulate a square PMT whose catode has a length of 20.5 cm (real measure)
+- build_10.25 simulate a square PMT whose catode has a length of 25.5 cm (max measure inside the internal teflon tube)
+- buil circle_PMT simulate a PMT sith exactly diameter than the internal diameter of the teflon.
+
+This three simulation has some new Ntuples with which I try to get relative results between them.
+
+- build_facto_0.9445 contain a factor in "DetectorConstruction.hh" (in the line 189 (where I calcule the number of fibers in each circle) with which I try to get 800 fibers like my real situation)
+
