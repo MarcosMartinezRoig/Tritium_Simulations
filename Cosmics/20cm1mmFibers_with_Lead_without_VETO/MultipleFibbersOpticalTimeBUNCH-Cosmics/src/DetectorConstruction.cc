@@ -187,7 +187,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4LogicalVolume* leadBoxLogical = new G4LogicalVolume(leadBoxSolid, lead, "leadBoxLogical");
     G4VPhysicalVolume* leadBoxPhysical = new G4PVPlacement(0, G4ThreeVector(0,0,0), leadBoxLogical, "leadBoxPhysical",
-                                                           worldLogical, false, 0, checkOverlaps);
+                                                           airBoxLogical, false, 0, checkOverlaps);
     
     //Make Teflon(PTFE) Tube
     G4VSolid* teflonTubeSolid = new G4Tubs("teflonTube",rIntTeflon,rExtTeflon,halfTeflonLength,0.,twopi);
