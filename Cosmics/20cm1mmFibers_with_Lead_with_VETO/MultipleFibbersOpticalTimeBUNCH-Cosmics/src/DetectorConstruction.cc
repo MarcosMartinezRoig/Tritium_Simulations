@@ -360,8 +360,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
  	
  	
     ////Place PMT in world
- 
- 
     G4LogicalVolume* pmtLogical = new G4LogicalVolume(pmtSolid,glass,"pmtLogical");
     G4LogicalVolume* photocathodeLogical = new G4LogicalVolume(photocathodeSolid,bialkaliPhoto,"photocathodeLogical");
  
@@ -413,6 +411,56 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     G4VPhysicalVolume* vetoPhysicalHigh1 = new G4PVPlacement(transformVetoHigh1, vetoBoxLogical, "vetoPhysicalHigh1", airBoxLogical, true,0,checkOverlaps);
     G4VPhysicalVolume* vetoPhysicalDown1 = new G4PVPlacement(transformVetoDown1, vetoBoxLogical, "vetoPhysicalDown1", airBoxLogical, true,1,checkOverlaps);
+
+    //PMTVetoPhysical
+    G4double xTranslationPMTVeto=0.0*mm;
+    G4double yTranslationPMTVeto=202.0*mm;
+    G4double zTranslationPMTVeto=zTranslationVeto+halfVetoZ+halfLengthPMT;
+
+    G4ThreeVector postionPMT1VetoHigh1 = G4ThreeVector(xTranslationPMTVeto,yTranslationPMTVeto,zTranslationPMTVeto);
+    G4ThreeVector postionPMT2VetoHigh1 = G4ThreeVector(xTranslationPMTVeto,-yTranslationPMTVeto,zTranslationPMTVeto);
+    G4ThreeVector postionPMT1VetoDown1 = G4ThreeVector(xTranslationPMTVeto,yTranslationPMTVeto,-zTranslationPMTVeto);
+    G4ThreeVector postionPMT2VetoDown1 = G4ThreeVector(xTranslationPMTVeto,-yTranslationPMTVeto,-zTranslationPMTVeto);
+
+    G4Transform3D transformPMT1VetoHigh1 = G4Transform3D(rotm,postionPMT1VetoHigh1);
+    G4Transform3D transformPMT2VetoHigh1 = G4Transform3D(rotm,postionPMT2VetoHigh1);
+    G4Transform3D transformPMT1VetoDown1 = G4Transform3D(rotPMT2,postionPMT1VetoDown1);
+    G4Transform3D transformPMT2VetoDown1 = G4Transform3D(rotPMT2,postionPMT2VetoDown1);
+
+    G4VPhysicalVolume* PMT1VetoHigh1Physical =	new G4PVPlacement(transformPMT1VetoHigh1,
+                      pmtLogical,            //its logical volume
+                      "PMT1VetoHigh1Physical",             //its name
+                      airBoxLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      2,                 //copy number
+                      checkOverlaps);       // checking overlaps
+
+    G4VPhysicalVolume* PMT2VetoHigh1Physical =	new G4PVPlacement(transformPMT2VetoHigh1,
+                      pmtLogical,            //its logical volume
+                      "PMT2VetoHigh1Physical",             //its name
+                      airBoxLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      3,                 //copy number
+                      checkOverlaps);       // checking overlaps
+
+    G4VPhysicalVolume* PMT1VetoDown1Physical =	new G4PVPlacement(transformPMT1VetoDown1,
+                      pmtLogical,            //its logical volume
+                      "PMT1VetoHigh1Physical",             //its name
+                      airBoxLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      4,                 //copy number
+                      checkOverlaps);       // checking overlaps
+
+    G4VPhysicalVolume* PMT2VetoDown1Physical =	new G4PVPlacement(transformPMT2VetoDown1,
+                      pmtLogical,            //its logical volume
+                      "PMT2VetoHigh1Physical",             //its name
+                      airBoxLogical,             //its mother  volume
+                      true,                 //no boolean operation
+                      5,                 //copy number
+                      checkOverlaps);       // checking overlaps
+
+
+
  		
  	
  	
@@ -530,17 +578,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4LogicalBorderSurface* AirVetoSurfaceDown = new G4LogicalBorderSurface("AirVetoSurfaceDown", vetoPhysicalDown1,airBoxPhysical,opAirVeto);
 
     // Veto-GLASS
-    //G4OpticalSurface* opVeto_Glass = new G4OpticalSurface("Veto-GlassSurface",          // Surface Name
-      //                                glisur,                  // SetModel
-        //                              ground,                  // SetFinish
-          //                            dielectric_dielectric,   // SetType
-            //                          fSurfaceRoughness);      // SetPolish
+    G4OpticalSurface* opVeto_Glass = new G4OpticalSurface("Veto-GlassSurface",          // Surface Name
+                                      glisur,                  // SetModel
+                                      ground,                  // SetFinish
+                                      dielectric_dielectric,   // SetType
+                                      fSurfaceRoughness);      // SetPolish
 
 
-    //G4LogicalBorderSurface* VetoGlassSurfaceHigh1 = new G4LogicalBorderSurface("VetoGlassSurfaceHigh1", vetoPhysicalHigh1,PMTVETOOOOOOOOOOOOPHYSICALHIGH1,opVeto_Glass);
-    //G4LogicalBorderSurface* VetoGlassSurfaceHigh2 = new G4LogicalBorderSurface("VetoGlassSurfaceHigh2", vetoPhysicalHigh1,PMTVETOOOOOOOOOOOOPHYSICALHIGH2,opVeto_Glass);
-    //G4LogicalBorderSurface* VetoGlassSurfaceDown1 = new G4LogicalBorderSurface("VetoGlassSurfaceDown1", vetoPhysicalDown1,PMTVETOOOOOOOOOOOOPHYSICALDOWN1,opVeto_Glass);
-    //G4LogicalBorderSurface* VetoGlassSurfaceDown2 = new G4LogicalBorderSurface("VetoGlassSurfaceDown2", vetoPhysicalDown1,PMTVETOOOOOOOOOOOOPHYSICALDOWN2,opVeto_Glass);
+    G4LogicalBorderSurface* VetoGlassSurfaceHigh1 = new G4LogicalBorderSurface("VetoGlassSurfaceHigh1", vetoPhysicalHigh1,PMT1VetoHigh1Physical,opVeto_Glass);
+    G4LogicalBorderSurface* VetoGlassSurfaceHigh2 = new G4LogicalBorderSurface("VetoGlassSurfaceHigh2", vetoPhysicalHigh1,PMT2VetoHigh1Physical,opVeto_Glass);
+    G4LogicalBorderSurface* VetoGlassSurfaceDown1 = new G4LogicalBorderSurface("VetoGlassSurfaceDown1", vetoPhysicalDown1,PMT1VetoDown1Physical,opVeto_Glass);
+    G4LogicalBorderSurface* VetoGlassSurfaceDown2 = new G4LogicalBorderSurface("VetoGlassSurfaceDown2", vetoPhysicalDown1,PMT2VetoDown1Physical,opVeto_Glass);
 
     // visualization attributes ------------------------------------------------
     G4VisAttributes* visAttributes = new G4VisAttributes(G4Colour(1.0,1.0,1.0));
