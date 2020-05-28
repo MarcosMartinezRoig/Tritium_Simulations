@@ -520,10 +520,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4LogicalSkinSurface *photoSkinSurf=new G4LogicalSkinSurface("PhotocathodeSurface",photocathodeLogical,opPhotocathode);
 
     // Air-Veto
-    G4OpticalSurface* opAirVeto= new G4OpticalSurface("AirVeto");          // Surface Name
-    opAirVeto->SetModel(unified);                  // SetModel
-    opAirVeto->SetType(dielectric_dielectric);   // SetType
-    opAirVeto->SetFinish(polished);                 // SetFinish
+    G4OpticalSurface* opAirVeto= new G4OpticalSurface("AirVetoSurface");          // Surface Name
+        opAirVeto->SetModel(glisur);                  // SetModel
+        opAirVeto->SetType(dielectric_metal);   // SetType
+        opAirVeto->SetFinish(polishedteflonair);                 // SetFinish ground
+        opAirVeto->SetPolish(fSurfaceRoughnessTeflon);
 
     G4LogicalBorderSurface* AirVetoSurfaceHigh = new G4LogicalBorderSurface("AirVetoSurfaceHigh", vetoPhysicalHigh1,airBoxPhysical,opAirVeto);
     G4LogicalBorderSurface* AirVetoSurfaceDown = new G4LogicalBorderSurface("AirVetoSurfaceDown", vetoPhysicalDown1,airBoxPhysical,opAirVeto);
