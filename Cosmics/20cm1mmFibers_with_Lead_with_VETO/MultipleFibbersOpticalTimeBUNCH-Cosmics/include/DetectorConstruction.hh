@@ -79,11 +79,13 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     		G4double GetSourceLength();
      		G4double GetFibberLength();
     		G4double GetFibberRadius();
+		G4double GetHeightCosmics();
     		G4Material* FindMaterial(G4String);
     
    		//static const G4int nTotalFibbers=60;
 		G4int nTotalFibbers, iFibber;
     		G4double rSource,halfLength,rInt, fibberHalfLength;
+		G4double heightCosmics;
 	
     		G4VPhysicalVolume*   sourcePhysical[5000]; 
     		G4VPhysicalVolume*   fibbersPhysical[5000];

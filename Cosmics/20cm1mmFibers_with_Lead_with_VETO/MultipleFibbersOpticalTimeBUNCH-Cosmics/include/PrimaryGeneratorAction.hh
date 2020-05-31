@@ -27,11 +27,12 @@
 #include "G4ParticleDefinition.hh"
 
 class G4Event;
+class DetectorConstruction;
 
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
   public:
-    PrimaryGeneratorAction();
+    PrimaryGeneratorAction(DetectorConstruction* detectorConstruction);
     ~PrimaryGeneratorAction();
 
   public:
@@ -57,9 +58,14 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 	G4double fParticleMomentumDirectionV;
 	G4double fParticleMomentumDirectionW;
 	G4double fParticleTime;
-    
-    
-    
+
+        DetectorConstruction* fDetConstruction;
+
 };
 
 #endif
+
+
+
+
+

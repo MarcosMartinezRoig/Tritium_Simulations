@@ -122,6 +122,9 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4double halflengthExtLeadZ = 35*cm;//REAL
     G4double thicknessLead=5*cm;
 
+    //height of Cosmics
+    heightCosmics = halflengthExtLeadZ;
+
     //Internal lead size
     G4double halflengthIntLeadX = halflengthExtLeadX-thicknessLead;
     G4double halflengthIntLeadY = halflengthExtLeadY-thicknessLead;
@@ -708,7 +711,12 @@ G4int DetectorConstruction::GetNFibbers()
 G4double DetectorConstruction::GetFibberLength()
 {
     return 2*fibberHalfLength;
-}	
+}
+
+G4double DetectorConstruction::GetHeightCosmics()
+{
+    return heightCosmics;
+}
 
 G4double DetectorConstruction::GetFibberRadius()
 {

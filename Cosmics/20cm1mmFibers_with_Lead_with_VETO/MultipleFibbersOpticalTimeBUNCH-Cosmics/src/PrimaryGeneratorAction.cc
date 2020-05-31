@@ -9,15 +9,16 @@
 #include "PrimaryGeneratorAction.hh"
 #include "G4SystemOfUnits.hh"
 #include "Analysis.hh"
+#include "DetectorConstruction.hh"
 
 using namespace std;
 
 #include "G4Event.hh"
 
 //----------------------------------------------------------------------------//
-PrimaryGeneratorAction::PrimaryGeneratorAction():
+PrimaryGeneratorAction::PrimaryGeneratorAction(DetectorConstruction* detectorConstruction):
 fParticleDefinition(0), fParticleEnergy(0), fParticlePosX(0),fParticlePosY(0),fParticlePosZ(0),fParticleMomentumDirectionU(0), fParticleMomentumDirectionV(0),
-fParticleMomentumDirectionW(0),fParticleTime(0)
+fParticleMomentumDirectionW(0),fParticleTime(0), fDetConstruction(detectorConstruction)
 {
     // define a particle gun
   
@@ -172,16 +173,24 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 	fParticleMomentumDirectionW=(*vect)[j]->w();
 	fParticleTime=(*vect)[j]->t();
 
+        //G4cout<<"AQUI Z POS "<<fParticlePosZ<<G4endl;
+        fParticlePosZ=fParticlePosZ+35*cm;
+        G4cout<<"AQUI Z POS "<<fParticlePosZ<<G4endl;
+        fParticlePosZ=fDetConstruction->GetHeightCosmics();
+        G4cout << "AQUI Z POS " << fParticlePosZ << G4endl;
+
         particleGun->SetParticleDefinition(fParticleDefinition);
         particleGun->SetParticleEnergy(fParticleEnergy);
         particleGun->SetParticlePosition(G4ThreeVector(fParticlePosX,fParticlePosY,fParticlePosZ));
         particleGun->SetParticleMomentumDirection(G4ThreeVector(fParticleMomentumDirectionU,fParticleMomentumDirectionV,fParticleMomentumDirectionW));
+        //particleGun->SetParticleMomentumDirection(G4ThreeVector(0,0,-1));
         particleGun->SetParticleTime(fParticleTime);
         particleGun->GeneratePrimaryVertex(anEvent);
    
         G4int dummyInt=-1;
         // get analysis manager
         auto analysisManager = G4AnalysisManager::Instance();
+
         analysisManager->FillNtupleDColumn(0,2, fParticleEnergy);
         analysisManager->FillNtupleDColumn(0,3, fParticlePosX);
         analysisManager->FillNtupleDColumn(0,4, fParticlePosY);
@@ -193,6 +202,19 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
         analysisManager->FillNtupleDColumn(0,19, fParticleMomentumDirectionU);
         analysisManager->FillNtupleDColumn(0,20, fParticleMomentumDirectionV);
         analysisManager->FillNtupleDColumn(0,21, fParticleMomentumDirectionW);
+
+        analysisManager->FillNtupleDColumn(3,2, fParticleEnergy);
+        analysisManager->FillNtupleDColumn(3,3, fParticlePosX);
+        analysisManager->FillNtupleDColumn(3,4, fParticlePosY);
+        analysisManager->FillNtupleDColumn(3,5, fParticlePosZ);
+        analysisManager->FillNtupleDColumn(3,6, fParticleTime);
+        analysisManager->FillNtupleIColumn(3,7, dummyInt);
+        analysisManager->FillNtupleIColumn(3,8, dummyInt);
+        analysisManager->FillNtupleIColumn(3,25, fParticleDefinition->GetPDGEncoding());
+        analysisManager->FillNtupleDColumn(3,26, fParticleMomentumDirectionU);
+        analysisManager->FillNtupleDColumn(3,27, fParticleMomentumDirectionV);
+        analysisManager->FillNtupleDColumn(3,28, fParticleMomentumDirectionW);
+
     
         delete (*vect)[j];
     }

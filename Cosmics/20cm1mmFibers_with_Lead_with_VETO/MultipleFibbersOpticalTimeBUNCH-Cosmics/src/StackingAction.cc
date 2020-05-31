@@ -83,6 +83,7 @@ void StackingAction::NewStage() {
     // get analysis manager
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillNtupleIColumn(0,9, fPhotonCounter);
+    analysisManager->FillNtupleIColumn(3,9, fPhotonCounter);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

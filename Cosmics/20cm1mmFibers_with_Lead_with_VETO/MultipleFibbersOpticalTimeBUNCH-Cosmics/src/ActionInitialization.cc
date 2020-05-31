@@ -66,7 +66,7 @@ void ActionInitialization::BuildForMaster() const
 void ActionInitialization::Build() const
 {
     //SetUserAction(new PrimaryGeneratorGPS(fDetConstruction,fAcquisitionTime,runNumber));
-    SetUserAction(new PrimaryGeneratorAction());
+    SetUserAction(new PrimaryGeneratorAction(fDetConstruction));
     SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
     auto eventAction = new EventAction(runNumber);
     SetUserAction(eventAction);

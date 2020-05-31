@@ -42,6 +42,8 @@
 #include "PMTHit.hh"
 #include "fibberSD.hh"
 #include "fibberHit.hh"
+#include "vetoSD.hh"
+#include "vetoHit.hh"
 #include "Randomize.hh"
 #include <iomanip>
 
@@ -56,6 +58,10 @@ EventAction::EventAction(G4int runNumber)
    fTrackLWater(0.),
    fTrackLFibber(0.),
    fSourceNumber(-1),
+   fCoincidenceFlagFibbers(-1),
+   fCoincidenceFlagVetoHigh(-1),
+   fCoincidenceFlagVetoDown(-1),
+   fCoincidenceFlagVetos(-1),
    fCoincidenceFlag(-1),
    fSecondaryParticlePDG(0),
    fSecondaryParticleEnergy(0)
@@ -63,6 +69,7 @@ EventAction::EventAction(G4int runNumber)
     RunNumber=runNumber;
     hitsCollID = -1;
     hitsCollIDfibbers=-1;
+    hitsCollIDveto=-1;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -81,7 +88,11 @@ void EventAction::BeginOfEventAction(const G4Event* event)
     fTrackLWater = 0.;
     fTrackLFibber = 0.;
     fSourceNumber=-1;
-    fCoincidenceFlag=-1;
+    fCoincidenceFlagFibbers = -1,
+    fCoincidenceFlagVetoHigh = -1,
+    fCoincidenceFlagVetoDown = -1,
+    fCoincidenceFlagVetos = -1,
+    fCoincidenceFlag = -1,
     fSecondaryParticlePDG=0;
     fSecondaryParticleEnergy=0.;
 
@@ -91,6 +102,7 @@ void EventAction::BeginOfEventAction(const G4Event* event)
         G4String colNam;
         hitsCollID = SDman->GetCollectionID(colNam="hitsCollectionPMTs");
 	hitsCollIDfibbers= SDman->GetCollectionID(colNam="fibberHitsCollection");
+        hitsCollIDveto= SDman->GetCollectionID(colNam="vetoHitsCollection");
     }
 }
 
@@ -113,8 +125,13 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
     PMTHitsCollection* HC = 0;
     fibberHitsCollection* HCFibber=0;
+    vetoHitsCollection* HCVeto=0;
     nHitPMT0=0;
     nHitPMT1=0;
+    nHitPMT2=0;
+    nHitPMT3=0;
+    nHitPMT4=0;
+    nHitPMT5=0;
     //nDetectedPMT0=0;
     //nDetectedPMT1=0;
 
@@ -122,6 +139,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
     {
         HC = (PMTHitsCollection*)(HCE->GetHC(hitsCollID));
         HCFibber=(fibberHitsCollection*)(HCE->GetHC(hitsCollIDfibbers));
+        HCVeto=(vetoHitsCollection*)(HCE->GetHC(hitsCollIDveto));
     }
 
     if ( HC ) {
@@ -136,22 +154,71 @@ void EventAction::EndOfEventAction(const G4Event* event)
 		  
                 case 1: nHitPMT1=nHitPMT1+1;
 					break;
+
+                case 2: nHitPMT2=nHitPMT2+1;
+                                        break;
+
+                case 3: nHitPMT3=nHitPMT3+1;
+                                        break;
+
+                case 4: nHitPMT4=nHitPMT4+1;
+                                        break;
+
+                case 5: nHitPMT5=nHitPMT5+1;
+                                        break;
+
             }
       
-        position = (*HC)[i]->GetPos();
+            position = (*HC)[i]->GetPos();
       
-	trackID=(*HC)[i]->GetTrackID();
-	photonEnergy=(*HC)[i]->GetEnergy();
+            trackID=(*HC)[i]->GetTrackID();
+            photonEnergy=(*HC)[i]->GetEnergy();
 
-	//fDetection=(*HC)[i]->GetDetection();
+            //fDetection=(*HC)[i]->GetDetection();
 
-	FillTreeOptical(analysisManager);
+            if(pmtNumber==0 || pmtNumber==1){
+                FillTreeOpticalFibber(analysisManager);
+            }
+            if(pmtNumber==2 || pmtNumber==3 || pmtNumber==4 || pmtNumber==5){
+                FillTreeOpticalVeto(analysisManager);
+            }
         }
-
     }
 
-    if(nHitPMT0 > 0 && nHitPMT1 >0){fCoincidenceFlag=1;}
-    else {fCoincidenceFlag=0;}
+    if(nHitPMT0 > 0 && nHitPMT1 >0){
+        fCoincidenceFlagFibbers=1;
+    }
+    else{
+        fCoincidenceFlagFibbers=0;
+    }
+
+    if(nHitPMT2 > 0 && nHitPMT3 >0){
+        fCoincidenceFlagVetoHigh=1;
+    }
+    else{
+        fCoincidenceFlagVetoHigh=0;
+    }
+
+    if(nHitPMT4 > 0 && nHitPMT5 >0){
+        fCoincidenceFlagVetoDown=1;
+    }
+    else{
+        fCoincidenceFlagVetoDown=0;
+    }
+
+    if(fCoincidenceFlagVetoHigh == 1 && fCoincidenceFlagVetoDown == 1){
+        fCoincidenceFlagVetos=1;
+    }
+    else{
+        fCoincidenceFlagVetos=0;
+    }
+
+    if(fCoincidenceFlagFibbers == 1 && fCoincidenceFlagVetos == 1){
+        fCoincidenceFlag=1;
+    }
+    else{
+        fCoincidenceFlag=0;
+    }
 
     if(HCFibber){
         if(HCFibber->entries()>0){
@@ -159,15 +226,27 @@ void EventAction::EndOfEventAction(const G4Event* event)
             fSecondaryParticleEnergy=(*HCFibber)[0]->GetParticleEnergy();
             //ADD ENERGY
         }
+
+        FillTreeTritiumFibber(analysisManager);
+    }
+
+    if(HCVeto){
+        if(HCVeto->entries()>0){
+            fSecondaryParticlePDG  = (*HCVeto)[0]->GetParticlePDG();
+            fSecondaryParticleEnergy=(*HCVeto)[0]->GetParticleEnergy();
+            //ADD ENERGY
+        }
+
+        FillTreeTritiumVeto(analysisManager);
     }
  
-    FillTreeTritium(analysisManager);
+
 }
 
 //G4double 	GetT0 () const
  
   
-void EventAction::FillTreeTritium(G4AnalysisManager *analysisManager){  
+void EventAction::FillTreeTritiumFibber(G4AnalysisManager *analysisManager){
     //// fill ntuples
     analysisManager->FillNtupleIColumn(0,0, RunNumber);
     analysisManager->FillNtupleIColumn(0,1, fEventID);
@@ -186,18 +265,19 @@ void EventAction::FillTreeTritium(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleIColumn(0,14, nHitPMT0);
     analysisManager->FillNtupleIColumn(0,15, nHitPMT1);
     analysisManager->FillNtupleIColumn(0,16, nHitPMT0+nHitPMT1);
-    analysisManager->FillNtupleIColumn(0,17, fCoincidenceFlag);
+    analysisManager->FillNtupleIColumn(0,17, fCoincidenceFlagFibbers);
     //analysisManager->FillNtupleIColumn(0,17, nDetectedPMT0);
     //analysisManager->FillNtupleIColumn(0,18, nDetectedPMT1);
     //analysisManager->FillNtupleIColumn(0,19, nDetectedPMT0+nDetectedPMT1);
     analysisManager->FillNtupleIColumn(0,22, fSecondaryParticlePDG);
     analysisManager->FillNtupleDColumn(0,23, fSecondaryParticleEnergy);
+    analysisManager->FillNtupleIColumn(0,24, fCoincidenceFlag);
     analysisManager->AddNtupleRow(0);
 }
   
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-void EventAction::FillTreeOptical(G4AnalysisManager *analysisManager){
+void EventAction::FillTreeOpticalFibber(G4AnalysisManager *analysisManager){
     //// fill ntuples
 
     analysisManager->FillNtupleIColumn(1,0, RunNumber);
@@ -211,5 +291,56 @@ void EventAction::FillTreeOptical(G4AnalysisManager *analysisManager){
     //analysisManager->FillNtupleIColumn(1,7, fDetection);
     analysisManager->AddNtupleRow(1);
 }
+
+void EventAction::FillTreeTritiumVeto(G4AnalysisManager *analysisManager){
+    //// fill ntuples
+    analysisManager->FillNtupleIColumn(3,0, RunNumber);
+    analysisManager->FillNtupleIColumn(3,1, fEventID);
+    //analysisManager->FillNtupleDColumn(3,2, fParticleEnergy);->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleDColumn(3,3, fSourcePosX);->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleDColumn(3,4, fSourcePosY);->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleDColumn(3,5, fSourcePosZ);->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleDColumn(3,6, fSourceT0);->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleIColumn(3,7, fSourceNumber); ->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleIColumn(3,8, distanceToFibber); ->Filled in PrimaryGeneratorGPS.cc
+    //analysisManager->FillNtupleIColumn(3,9, fPhotonCounter);->Filled in StackingAction.cc
+    analysisManager->FillNtupleDColumn(3,10, fEnergyWater);
+    analysisManager->FillNtupleDColumn(3,11, fEnergyVeto);
+    analysisManager->FillNtupleDColumn(3,12, fTrackLWater);
+    analysisManager->FillNtupleDColumn(3,13, fTrackLVeto);
+    analysisManager->FillNtupleIColumn(3,14, nHitPMT2);
+    analysisManager->FillNtupleIColumn(3,15, nHitPMT3);
+    analysisManager->FillNtupleIColumn(3,16, nHitPMT2+nHitPMT3);
+    analysisManager->FillNtupleIColumn(3,17, fCoincidenceFlagVetoHigh);
+    analysisManager->FillNtupleIColumn(3,18, nHitPMT4);
+    analysisManager->FillNtupleIColumn(3,19, nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,20, nHitPMT4+nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,21, fCoincidenceFlagVetoDown);
+    analysisManager->FillNtupleIColumn(3,22, nHitPMT2+nHitPMT3+nHitPMT4+nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,23, fCoincidenceFlagVetos);
+    analysisManager->FillNtupleIColumn(3,24, fCoincidenceFlag);
+    //analysisManager->FillNtupleIColumn(3,17, nDetectedPMT0);
+    //analysisManager->FillNtupleIColumn(3,18, nDetectedPMT1);
+    //analysisManager->FillNtupleIColumn(3,19, nDetectedPMT0+nDetectedPMT1);
+    analysisManager->FillNtupleIColumn(3,29, fSecondaryParticlePDG);
+    analysisManager->FillNtupleDColumn(3,30, fSecondaryParticleEnergy);
+    analysisManager->AddNtupleRow(3);
+}
 	
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void EventAction::FillTreeOpticalVeto(G4AnalysisManager *analysisManager){
+    //// fill ntuples
+
+    analysisManager->FillNtupleIColumn(4,0, RunNumber);
+    analysisManager->FillNtupleIColumn(4,1, fEventID);
+    analysisManager->FillNtupleIColumn(4,2, trackID);
+    analysisManager->FillNtupleDColumn(4,3, position.x());
+    analysisManager->FillNtupleDColumn(4,4, position.y());
+    analysisManager->FillNtupleDColumn(4,5, position.z());
+    analysisManager->FillNtupleIColumn(4,6, pmtNumber);
+    analysisManager->FillNtupleDColumn(4,7, photonEnergy);
+    //analysisManager->FillNtupleIColumn(4,7, fDetection);
+    analysisManager->AddNtupleRow(4);
+}
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

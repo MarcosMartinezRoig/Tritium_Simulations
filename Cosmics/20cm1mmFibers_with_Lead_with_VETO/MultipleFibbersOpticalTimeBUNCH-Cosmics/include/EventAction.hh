@@ -58,8 +58,11 @@ class EventAction : public G4UserEventAction
     void AddFibbers(G4double de, G4double dl);
     void AddVeto(G4double de, G4double dl);
 	G4int RunNumber;
-	void FillTreeOptical(G4AnalysisManager*); 
-	void FillTreeTritium(G4AnalysisManager*);
+	void FillTreeOpticalFibber(G4AnalysisManager*); 
+	void FillTreeTritiumFibber(G4AnalysisManager*);
+
+	void FillTreeOpticalVeto(G4AnalysisManager*); 
+	void FillTreeTritiumVeto(G4AnalysisManager*);
 
 
     
@@ -77,18 +80,27 @@ class EventAction : public G4UserEventAction
     //G4int runNumber;
     G4int hitsCollID;
     G4int hitsCollIDfibbers;
+    G4int hitsCollIDveto;
      G4int pmtNumber;
       G4ThreeVector position;
 		G4int trackID;
 //G4int fDetection;
 G4int nHitPMT0;
 G4int nHitPMT1;
+G4int nHitPMT2;
+G4int nHitPMT3;
+G4int nHitPMT4;
+G4int nHitPMT5;
 //G4int nDetectedPMT0;
 //G4int nDetectedPMT1;
+G4int fCoincidenceFlagFibbers;
+G4int fCoincidenceFlagVetoHigh;
+G4int fCoincidenceFlagVetoDown;
+G4int fCoincidenceFlagVetos;
 G4int fCoincidenceFlag;
 G4double photonEnergy;  
 G4int fSecondaryParticlePDG;
-  G4double fSecondaryParticleEnergy;
+G4double fSecondaryParticleEnergy;
 };
 
 // inline functions

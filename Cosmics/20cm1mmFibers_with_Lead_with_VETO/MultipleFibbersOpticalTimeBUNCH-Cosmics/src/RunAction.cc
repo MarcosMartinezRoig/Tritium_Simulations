@@ -64,8 +64,7 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
 
     //Fibbers interactions
     //nTuppleID=0
-
-    analysisManager->CreateNtuple("CosmicTree", "CosmicTree");
+    analysisManager->CreateNtuple("CosmicTreeFibbers", "CosmicTreeFibbers");
     analysisManager->CreateNtupleIColumn("runID");
     analysisManager->CreateNtupleIColumn("eventID");
     analysisManager->CreateNtupleDColumn("particleEnergy");
@@ -90,12 +89,12 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
     analysisManager->CreateNtupleDColumn("particleMomentumW");
     analysisManager->CreateNtupleIColumn("secondaryParticlePDG");
     analysisManager->CreateNtupleDColumn("secondaryEnergy");
+    analysisManager->CreateNtupleIColumn("CoincidenceVetoFibbers");
     analysisManager->FinishNtuple();
     
-    //Photon Hits
+    //Photon Fibers Hits
     //nTuppleID=1
- 
-    analysisManager->CreateNtuple("OpticalData", "OtpicalData");
+    analysisManager->CreateNtuple("OpticalDataFibbers", "OtpicalDataFibbers");
     analysisManager->CreateNtupleIColumn("runID");
     analysisManager->CreateNtupleIColumn("eventID");
     analysisManager->CreateNtupleIColumn("photonID");
@@ -114,6 +113,56 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
     analysisManager->CreateNtupleDColumn("fibberLength");
     analysisManager->CreateNtupleIColumn("nFibbers");
     analysisManager->CreateNtupleDColumn("fibberDiameter");
+    analysisManager->FinishNtuple();
+
+    //Veto interactions
+    //nTuppleID=3
+    analysisManager->CreateNtuple("CosmicTreeVeto", "CosmicTreeVeto");
+    analysisManager->CreateNtupleIColumn("runID");
+    analysisManager->CreateNtupleIColumn("eventID");
+    analysisManager->CreateNtupleDColumn("particleEnergy");
+    analysisManager->CreateNtupleDColumn("particlePosX");
+    analysisManager->CreateNtupleDColumn("particlePosY");
+    analysisManager->CreateNtupleDColumn("particlePosZ");
+    analysisManager->CreateNtupleDColumn("particleT0_s");
+    analysisManager->CreateNtupleIColumn("NaN");//let the branches stay. otherelse will be a mess to reorder the writings
+    analysisManager->CreateNtupleIColumn("NaN2");
+    analysisManager->CreateNtupleIColumn("NPhotonsGenerated");
+    analysisManager->CreateNtupleDColumn("Ewater");
+    analysisManager->CreateNtupleDColumn("Eveto");
+    analysisManager->CreateNtupleDColumn("Lwater");
+    analysisManager->CreateNtupleDColumn("Lveto");
+    analysisManager->CreateNtupleIColumn("nHitPMT2");
+    analysisManager->CreateNtupleIColumn("nHitPMT3");
+    analysisManager->CreateNtupleIColumn("nHitTotalHigh");
+    analysisManager->CreateNtupleIColumn("CoincidenceHigh");
+    analysisManager->CreateNtupleIColumn("nHitPMT4");
+    analysisManager->CreateNtupleIColumn("nHitPMT5");
+    analysisManager->CreateNtupleIColumn("nHitTotalDown");
+    analysisManager->CreateNtupleIColumn("CoincidenceDown");
+    analysisManager->CreateNtupleIColumn("nHitTotal");
+    analysisManager->CreateNtupleIColumn("CoincidenceVetos");
+    analysisManager->CreateNtupleIColumn("CoincidenceVetoFibbers");
+    analysisManager->CreateNtupleIColumn("particlePDG");
+    analysisManager->CreateNtupleDColumn("particleMomentumU");
+    analysisManager->CreateNtupleDColumn("particleMomentumV");
+    analysisManager->CreateNtupleDColumn("particleMomentumW");
+    analysisManager->CreateNtupleIColumn("secondaryParticlePDG");
+    analysisManager->CreateNtupleDColumn("secondaryEnergy");
+    analysisManager->FinishNtuple();
+
+    //Photon Veto Hits
+    //nTuppleID=4
+    analysisManager->CreateNtuple("OpticalDataVeto", "OtpicalDataVeto");
+    analysisManager->CreateNtupleIColumn("runID");
+    analysisManager->CreateNtupleIColumn("eventID");
+    analysisManager->CreateNtupleIColumn("photonID");
+    analysisManager->CreateNtupleDColumn("HitPosX");
+    analysisManager->CreateNtupleDColumn("HitPosY");
+    analysisManager->CreateNtupleDColumn("HitPosZ");
+    analysisManager->CreateNtupleIColumn("pmtNumber");
+    analysisManager->CreateNtupleDColumn("photonEnergy");
+    //analysisManager->CreateNtupleIColumn("DetectionFlag");//1 if detected 0 is not
     analysisManager->FinishNtuple();
 }
 
