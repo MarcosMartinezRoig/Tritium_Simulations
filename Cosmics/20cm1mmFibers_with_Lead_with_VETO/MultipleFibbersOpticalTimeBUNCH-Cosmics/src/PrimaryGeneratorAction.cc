@@ -174,10 +174,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 	fParticleTime=(*vect)[j]->t();
 
         //G4cout<<"AQUI Z POS "<<fParticlePosZ<<G4endl;
-        fParticlePosZ=fParticlePosZ+35*cm;
-        G4cout<<"AQUI Z POS "<<fParticlePosZ<<G4endl;
+        //fParticlePosZ=fParticlePosZ+35*cm;
+        //G4cout<<"AQUI Z POS "<<fParticlePosZ<<G4endl;
         fParticlePosZ=fDetConstruction->GetHeightCosmics();
-        G4cout << "AQUI Z POS " << fParticlePosZ << G4endl;
+        //G4cout << "AQUI Z POS " << fParticlePosZ << G4endl;
 
         particleGun->SetParticleDefinition(fParticleDefinition);
         particleGun->SetParticleEnergy(fParticleEnergy);
