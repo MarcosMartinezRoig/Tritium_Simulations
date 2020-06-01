@@ -296,7 +296,11 @@ void EventAction::FillTreeOpticalFibber(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleIColumn(1,6, pmtNumber);
     analysisManager->FillNtupleDColumn(1,7, photonEnergy);
     //analysisManager->FillNtupleIColumn(1,7, fDetection);
+    //JUST SAVE DATA WHEN ELECTERONS ITS THE FIBBERS
+    if(fEnergyFibber>0)
+    {
     analysisManager->AddNtupleRow(1);
+    }
 }
 
 void EventAction::FillTreeTritiumVeto(G4AnalysisManager *analysisManager){
@@ -352,7 +356,10 @@ void EventAction::FillTreeOpticalVeto(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleIColumn(4,6, pmtNumber);
     analysisManager->FillNtupleDColumn(4,7, photonEnergy);
     //analysisManager->FillNtupleIColumn(4,7, fDetection);
+    if(fEnergyVeto>0)
+    {
     analysisManager->AddNtupleRow(4);
+    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
