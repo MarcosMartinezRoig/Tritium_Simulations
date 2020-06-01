@@ -85,8 +85,10 @@ void EventAction::BeginOfEventAction(const G4Event* event)
     fEventID=0;
     fEnergyWater = 0.;
     fEnergyFibber = 0.;
+    fEnergyVeto = 0.;
     fTrackLWater = 0.;
     fTrackLFibber = 0.;
+    fTrackLVeto = 0.;
     fSourceNumber=-1;
     fCoincidenceFlagFibbers = -1,
     fCoincidenceFlagVetoHigh = -1,
@@ -142,7 +144,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
         HCVeto=(vetoHitsCollection*)(HCE->GetHC(hitsCollIDveto));
     }
 
-    if ( HC ) {
+    if(HC){
         int n_hit = HC->entries();
 
         for ( int i = 0 ; i < n_hit; i++){
@@ -272,7 +274,12 @@ void EventAction::FillTreeTritiumFibber(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleIColumn(0,22, fSecondaryParticlePDG);
     analysisManager->FillNtupleDColumn(0,23, fSecondaryParticleEnergy);
     analysisManager->FillNtupleIColumn(0,24, fCoincidenceFlag);
+
+    //JUST SAVE DATA WHEN ELECTERONS ITS THE FIBBERS
+    if(fEnergyFibber>0)
+    {
     analysisManager->AddNtupleRow(0);
+    }
 }
   
 
@@ -304,27 +311,32 @@ void EventAction::FillTreeTritiumVeto(G4AnalysisManager *analysisManager){
     //analysisManager->FillNtupleIColumn(3,7, fSourceNumber); ->Filled in PrimaryGeneratorGPS.cc
     //analysisManager->FillNtupleIColumn(3,8, distanceToFibber); ->Filled in PrimaryGeneratorGPS.cc
     //analysisManager->FillNtupleIColumn(3,9, fPhotonCounter);->Filled in StackingAction.cc
-    analysisManager->FillNtupleDColumn(3,10, fEnergyWater);
-    analysisManager->FillNtupleDColumn(3,11, fEnergyVeto);
-    analysisManager->FillNtupleDColumn(3,12, fTrackLWater);
-    analysisManager->FillNtupleDColumn(3,13, fTrackLVeto);
-    analysisManager->FillNtupleIColumn(3,14, nHitPMT2);
-    analysisManager->FillNtupleIColumn(3,15, nHitPMT3);
-    analysisManager->FillNtupleIColumn(3,16, nHitPMT2+nHitPMT3);
-    analysisManager->FillNtupleIColumn(3,17, fCoincidenceFlagVetoHigh);
-    analysisManager->FillNtupleIColumn(3,18, nHitPMT4);
-    analysisManager->FillNtupleIColumn(3,19, nHitPMT5);
-    analysisManager->FillNtupleIColumn(3,20, nHitPMT4+nHitPMT5);
-    analysisManager->FillNtupleIColumn(3,21, fCoincidenceFlagVetoDown);
-    analysisManager->FillNtupleIColumn(3,22, nHitPMT2+nHitPMT3+nHitPMT4+nHitPMT5);
-    analysisManager->FillNtupleIColumn(3,23, fCoincidenceFlagVetos);
-    analysisManager->FillNtupleIColumn(3,24, fCoincidenceFlag);
+    //analysisManager->FillNtupleDColumn(3,10, fEnergyWater);
+    analysisManager->FillNtupleDColumn(3,10, fEnergyVeto);
+    //analysisManager->FillNtupleDColumn(3,12, fTrackLWater);
+    analysisManager->FillNtupleDColumn(3,11, fTrackLVeto);
+    analysisManager->FillNtupleIColumn(3,12, nHitPMT2);
+    analysisManager->FillNtupleIColumn(3,13, nHitPMT3);
+    analysisManager->FillNtupleIColumn(3,14, nHitPMT2+nHitPMT3);
+    analysisManager->FillNtupleIColumn(3,15, fCoincidenceFlagVetoHigh);
+    analysisManager->FillNtupleIColumn(3,16, nHitPMT4);
+    analysisManager->FillNtupleIColumn(3,17, nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,18, nHitPMT4+nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,19, fCoincidenceFlagVetoDown);
+    analysisManager->FillNtupleIColumn(3,20, nHitPMT2+nHitPMT3+nHitPMT4+nHitPMT5);
+    analysisManager->FillNtupleIColumn(3,21, fCoincidenceFlagVetos);
+    analysisManager->FillNtupleIColumn(3,22, fCoincidenceFlag);
     //analysisManager->FillNtupleIColumn(3,17, nDetectedPMT0);
     //analysisManager->FillNtupleIColumn(3,18, nDetectedPMT1);
     //analysisManager->FillNtupleIColumn(3,19, nDetectedPMT0+nDetectedPMT1);
-    analysisManager->FillNtupleIColumn(3,29, fSecondaryParticlePDG);
-    analysisManager->FillNtupleDColumn(3,30, fSecondaryParticleEnergy);
+    analysisManager->FillNtupleIColumn(3,27, fSecondaryParticlePDG);
+    analysisManager->FillNtupleDColumn(3,28, fSecondaryParticleEnergy);
+
+    //JUST SAVE DATA WHEN ELECTERONS ITS THE FIBBERS
+    if(fEnergyVeto>0)
+    {
     analysisManager->AddNtupleRow(3);
+    }
 }
 	
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

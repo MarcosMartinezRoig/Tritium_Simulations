@@ -210,10 +210,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
         analysisManager->FillNtupleDColumn(3,6, fParticleTime);
         analysisManager->FillNtupleIColumn(3,7, dummyInt);
         analysisManager->FillNtupleIColumn(3,8, dummyInt);
-        analysisManager->FillNtupleIColumn(3,25, fParticleDefinition->GetPDGEncoding());
-        analysisManager->FillNtupleDColumn(3,26, fParticleMomentumDirectionU);
-        analysisManager->FillNtupleDColumn(3,27, fParticleMomentumDirectionV);
-        analysisManager->FillNtupleDColumn(3,28, fParticleMomentumDirectionW);
+        analysisManager->FillNtupleIColumn(3,23, fParticleDefinition->GetPDGEncoding());
+        analysisManager->FillNtupleDColumn(3,24, fParticleMomentumDirectionU);
+        analysisManager->FillNtupleDColumn(3,25, fParticleMomentumDirectionV);
+        analysisManager->FillNtupleDColumn(3,26, fParticleMomentumDirectionW);
 
     
         delete (*vect)[j];

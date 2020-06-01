@@ -128,9 +128,9 @@ RunAction::RunAction(G4int runNumber, G4int acquisitionTime, G4int sourceActivit
     analysisManager->CreateNtupleIColumn("NaN");//let the branches stay. otherelse will be a mess to reorder the writings
     analysisManager->CreateNtupleIColumn("NaN2");
     analysisManager->CreateNtupleIColumn("NPhotonsGenerated");
-    analysisManager->CreateNtupleDColumn("Ewater");
+    //analysisManager->CreateNtupleDColumn("Ewater");
     analysisManager->CreateNtupleDColumn("Eveto");
-    analysisManager->CreateNtupleDColumn("Lwater");
+    //analysisManager->CreateNtupleDColumn("Lwater");
     analysisManager->CreateNtupleDColumn("Lveto");
     analysisManager->CreateNtupleIColumn("nHitPMT2");
     analysisManager->CreateNtupleIColumn("nHitPMT3");
