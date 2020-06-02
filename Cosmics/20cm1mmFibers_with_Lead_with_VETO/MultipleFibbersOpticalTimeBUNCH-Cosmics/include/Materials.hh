@@ -69,6 +69,7 @@ class Materials
     G4Material*	       fLead;
     G4Material*        fPMMA;
     G4Material*        fPolystyrene;
+    G4Material*        fPolystyrene2;
     G4Material*        fTeflon;
     G4Material*        fSilicone;
     G4Material*        fGlass;

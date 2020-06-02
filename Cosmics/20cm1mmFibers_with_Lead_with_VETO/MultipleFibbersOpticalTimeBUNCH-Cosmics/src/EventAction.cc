@@ -276,7 +276,7 @@ void EventAction::FillTreeTritiumFibber(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleIColumn(0,24, fCoincidenceFlag);
 
     //JUST SAVE DATA WHEN ELECTERONS ITS THE FIBBERS
-    if(fEnergyFibber>0)
+    if(nHitPMT0>0 || nHitPMT1>0)
     {
     analysisManager->AddNtupleRow(0);
     }
@@ -337,7 +337,7 @@ void EventAction::FillTreeTritiumVeto(G4AnalysisManager *analysisManager){
     analysisManager->FillNtupleDColumn(3,28, fSecondaryParticleEnergy);
 
     //JUST SAVE DATA WHEN ELECTERONS ITS THE FIBBERS
-    if(fEnergyVeto>0)
+    if(nHitPMT2>0 || nHitPMT3>0 || nHitPMT4>0 || nHitPMT5>0)
     {
     analysisManager->AddNtupleRow(3);
     }
