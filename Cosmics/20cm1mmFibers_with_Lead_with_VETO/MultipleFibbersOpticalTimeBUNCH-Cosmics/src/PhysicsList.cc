@@ -100,7 +100,7 @@ PhysicsList::PhysicsList() : G4VModularPhysicsList(),
   SetVerboseLevel(fVerboseLevel);
      
   // EM physics
-  fEmName = G4String("emlivermore");
+  fEmName = G4String("emstandard_opt1");
 //  fEmName = G4String("G4EmStandardPhysics_option4");
 
   fEmPhysicsList = new PhysListEmStandard(fEmName);
