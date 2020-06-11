@@ -70,7 +70,7 @@ void ActionInitialization::Build() const
     SetUserAction(new RunAction(runNumber,fAcquisitionTime,fSourceActivity,fDetConstruction));
     auto eventAction = new EventAction(runNumber);
     SetUserAction(eventAction);
-    SetUserAction(new SteppingAction(fDetConstruction,eventAction));
+    //SetUserAction(new SteppingAction(fDetConstruction,eventAction));
     SetUserAction(new StackingAction());
 }  
 
