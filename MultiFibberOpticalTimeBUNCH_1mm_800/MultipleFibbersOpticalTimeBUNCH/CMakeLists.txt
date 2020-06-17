@@ -51,6 +51,10 @@ set(_SCRIPTS
   RunSimulationLocal.py
   Analise.C
   gui.mac
+  Cluster_IFIC.py
+  Cluster_IFIC.sh
+  test.sub
+  test_1_run.sh
   )
 
 foreach(_script ${_SCRIPTS})

@@ -103,14 +103,13 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
     G4String confinedToSolid="sourcePhysical_"+std::to_string(fibberNumber);
     posDist->ConfineSourceToVolume(confinedToSolid); 
 
-
+    G4cout << "Acquisition time: " << acquisitionTime << G4endl;
 
     if (acquisitionTime>0){//IF ACQUISITIONTIME==0 WE ARE IN EVENTMODE ACQUISITION
         aTime=GenerateTime(acquisitionTime,runNumber);
         fParticleGun->SetParticleTime(aTime);
     }
 
-  
     fParticleGun->GeneratePrimaryVertex(anEvent);
    
     fPrimaryVertex= anEvent->GetPrimaryVertex();
@@ -145,7 +144,7 @@ void PrimaryGeneratorGPS::GeneratePrimaries(G4Event* anEvent)
     {fibberOut=1;}
     else{fibberOut=0;}
 
-    G4cout << "FibberOut_Flag: " << fibberOut << G4endl;
+    //G4cout << "FibberOut_Flag: " << fibberOut << G4endl;
   
 
     // get analysis manager
