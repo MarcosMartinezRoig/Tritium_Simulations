@@ -1,6 +1,6 @@
 universe = vanilla
 
-executable          = Cluster_IFIC.sh $(Process)
+executable          = Cluster_IFIC.sh 
 arguments           = $(Process)
 
 log                 = test.log
@@ -10,4 +10,4 @@ error               = errors.$(Cluster).$(process).err
 request_Cpus        = 4
 request_Memory      = 4000
 
-queue 1
+queue 2016
