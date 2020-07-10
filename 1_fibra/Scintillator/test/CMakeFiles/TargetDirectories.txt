@@ -1,0 +1,7 @@
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/install/strip.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/edit_cache.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/Scintillator.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/rebuild_cache.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/list_install_components.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/install/local.dir
+/home/marcosmr/Documentos/Geant4/Tritium_Simulations/1_fibra/Scintillator/test/CMakeFiles/install.dir

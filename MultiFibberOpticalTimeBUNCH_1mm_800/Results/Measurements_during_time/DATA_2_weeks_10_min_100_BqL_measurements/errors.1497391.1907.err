@@ -1,0 +1,18 @@
+
+-------- EEEE ------- G4Exception-START -------- EEEE -------
+*** G4Exception : TRACK003
+      issued by : G4ParticleChange::CheckIt
+momentum, energy, and/or time was illegal
+*** Event Must Be Aborted ***
+G4Track (0x202b4c0) - track ID = 3, parent ID = 1
+ Particle type : opticalphoton - creator process : Scintillation, creator model : Undefined
+ Kinetic energy : 3.08687 eV  - Momentum direction : (0.325902,-0.276109,-0.904186)
+ Step length : 2.24602 mm  - total energy deposit : 0 eV 
+ Pre-step point : (9.50631,-11.152,-14.4853) - Physical volume : fibbersPhysical_734 (G4_POLYSTYRENE)
+ - defined by : not available
+ Post-step point : (10.2383,-11.7721,-16.5162) - Physical volume : sourcePhysical_734 (G4_WATER)
+ - defined by : Transportation - step status : 1
+ *** Note: Step information might not be properly updated.
+
+-------- EEEE -------- G4Exception-END --------- EEEE -------
+
