@@ -22,7 +22,7 @@ void MakeSingleGraphs(TString fnameData){
 	Int_t nEntries;
 	TString fname= fnameData;
 	TFile *graphsFile=new TFile(fnameData.ReplaceAll("Small","Single"),"RECREATE");
-	Int_t nPoints=60;
+        Int_t nPoints=6;
 	Int_t time,counts, activity;
 	Int_t countsIntegrated;
 	TString graphName, activityString;
@@ -46,6 +46,9 @@ void MakeSingleGraphs(TString fnameData){
 	dataUnsorted=(TTree*)ficheiro->Get("countsData_small");
 	TTree* data=SortTree(dataUnsorted,graphsFile);
 	nEntries=data->GetEntries();
+
+        cout << "nEntries: " << nEntries << endl;
+
 	data->SetBranchAddress("countsCoincidence",&counts);
 	data->SetBranchAddress("time",&time);
 	auto activityBranch = data->Branch("activity", &activity, "activity/I");
